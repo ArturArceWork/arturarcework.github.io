@@ -1,0 +1,85 @@
+{
+  "profile": {
+    "name": "Artur Arce",
+    "role": "Data Analyst / Analytics Engineer 📊",
+    "tagline": "Transformo datos complejos en decisiones estratégicas.",
+    "bio": "Profesional de datos con sólida experiencia transformando información compleja en soluciones analíticas y estratégicas. Especializado en el desarrollo de pipelines ETL, modelado de bases de datos relacionales y creación de dashboards ejecutivos de alto impacto. Apasionado por optimizar la toma de decisiones, identificar oportunidades de mejora y construir arquitecturas de datos escalables que impulsen el crecimiento del negocio.",
+    "location": "Lima, Perú",
+    "email": "arturarce@ejemplo.com",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/arturarce",
+      "github": "https://github.com/arturarce",
+      "twitter": "https://twitter.com/arturarce",
+      "medium": "https://medium.com/@arturarce"
+    }
+  },
+  "skills": {
+    "Herramientas Core (Software)": [
+      { "name": "SQL Server (T-SQL)", "icon": "database", "desc": "Diseño de ETLs, Store Procedures y optimización de consultas complejas para grandes volúmenes de datos.", "level": 95 },
+      { "name": "Power BI & DAX", "icon": "bar-chart-3", "desc": "Modelado semántico, medidas DAX avanzadas y desarrollo de dashboards ejecutivos interactivos.", "level": 90 },
+      { "name": "Python", "icon": "code", "desc": "Procesamiento y limpieza de datos automatizada con Pandas, NumPy y visualizaciones avanzadas.", "level": 75 },
+      { "name": "Excel Avanzado", "icon": "table", "desc": "Power Query, modelado de datos financieros y automatización de procesos mediante Macros/VBA.", "level": 85 }
+    ],
+    "Conocimiento Analítico (Dominio)": [
+      { "name": "Data Modeling", "icon": "network", "desc": "Diseño robusto de Modelos Dimensionales (Star Schema / Snowflake) garantizando escalabilidad.", "level": 90 },
+      { "name": "Estadística Aplicada", "icon": "line-chart", "desc": "Análisis descriptivo, pruebas de hipótesis y detección de anomalías para validación de datos.", "level": 70 },
+      { "name": "Business Intelligence", "icon": "pie-chart", "desc": "Traducción de requerimientos de negocio en KPIs técnicos y métricas de desempeño.", "level": 85 },
+      { "name": "Control de Versiones", "icon": "git-branch", "desc": "Gestión de repositorios en Git/GitHub para integración y documentación continua de código.", "level": 80 }
+    ]
+  },
+  "projects": [
+    {
+      "id": "northwind-pipeline",
+      "title": "Pipeline E2E: Northwind Analytics",
+      "category": "Retail & Sales",
+      "emoji": "🛒",
+      "short_desc": "Diseño de un modelo Star Schema y limpieza con Python para un Dashboard interactivo de control de ventas corporativas.",
+      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python (librería Pandas) para el tratamiento de valores nulos y estandarización, y finalmente se cargan en un modelo analítico optimizado para Power BI, permitiendo a la gerencia monitorear el rendimiento en tiempo real.",
+      "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
+      "metrics": { "Volumen Procesado": "1.5M+ filas", "Precisión": "99.9%", "Latencia Reportes": "-40%" },
+      "images": [
+        "https://placehold.co/800x450/0f172a/ffffff?text=Northwind+Dashboard",
+        "https://placehold.co/800x450/4f46e5/ffffff?text=Modelo+Star+Schema"
+      ],
+      "links": {
+        "github": "https://github.com/tu-usuario/northwind",
+        "youtube": "https://youtube.com/demo-video"
+      }
+    },
+    {
+      "id": "finance-audit",
+      "title": "Auditoría de Mercado Financiero",
+      "category": "Finanzas",
+      "emoji": "📈",
+      "short_desc": "Automatización de reportes mensuales y análisis de tendencias históricas utilizando técnicas de estadística descriptiva.",
+      "full_desc": "Construcción de una herramienta de auditoría continua en Python y Excel avanzado para analizar la integridad de conjuntos de datos financieros. El modelo detecta anomalías de facturación mediante técnicas estadísticas, automatizando el reporte normativo mensual que se entrega a los stakeholders principales y reduciendo el margen de error humano.",
+      "stack": ["PANDAS", "EXCEL", "ESTADÍSTICA"],
+      "metrics": { "Cobertura de Datos": "100%", "Errores Prevenidos": "12%", "Ahorro Operativo": "$15k / año" },
+      "images": [
+        "https://placehold.co/800x450/150458/ffffff?text=Auditoria+Financiera",
+        "https://placehold.co/800x450/217346/ffffff?text=Deteccion+de+Anomalias"
+      ],
+      "links": {
+        "github": "https://github.com/tu-usuario/audit-tool",
+        "youtube": "https://youtube.com/demo-video"
+      }
+    },
+    {
+      "id": "health-logistics",
+      "title": "Optimización de Triaje Hospitalario",
+      "category": "Salud Pública",
+      "emoji": "🏥",
+      "short_desc": "Análisis del flujo de pacientes con datos históricos para predecir cuellos de botella y reducir los tiempos de espera.",
+      "full_desc": "Proyecto enfocado en la logística y administración de centros médicos. Se estructuró una base de datos relacional en SQL y se integró con Power BI para crear métricas en tiempo real sobre el flujo de triaje. Esto permitió a los directores médicos tomar decisiones dinámicas sobre la redistribución del personal durante los picos de atención.",
+      "stack": ["SQL SERVER", "POWER BI"],
+      "metrics": { "Registros Analizados": "500k+", "Tiempos de Espera": "-15%", "Saturación": "-10%" },
+      "images": [
+        "https://placehold.co/800x450/E11D48/ffffff?text=Dashboard+Hospitalario"
+      ],
+      "links": {
+        "github": "https://github.com/tu-usuario/health",
+        "youtube": ""
+      }
+    }
+  ]
+}
