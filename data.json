@@ -2,70 +2,131 @@
   "profile": {
     "name": "Artur Arce",
     "role": "DATA ANALYST / ANALYTICS ENGINEER",
-    "bio": "Diseño arquitecturas de datos que transforman el caos operativo en claridad estratégica. Especializado en extraer valor real construyendo flujos robustos y dashboards enfocados en retorno de inversión.",
+    "bio": "Profesional de datos con sólida experiencia transformando información compleja en soluciones analíticas y estratégicas. Especializado en el desarrollo de pipelines ETL, modelado de bases de datos relacionales y creación de dashboards ejecutivos de alto impacto. Apasionado por optimizar la toma de decisiones, identificar oportunidades de mejora y construir arquitecturas de datos escalables que impulsen el crecimiento del negocio.",
+    "location": "Lima, Perú",
+    "degree": "Ing. de Sistemas",
+    "role_short": "Data Analyst",
+    "cv_link": "./assets/Artur_Arce_CV.pdf",
     "email": "arturarce@ejemplo.com",
     "socials": {
       "linkedin": "https://linkedin.com/in/arturarce",
-      "github": "https://github.com/arturarce",
-      "twitter": "https://twitter.com/arturarce"
+      "github": "https://github.com/arturarce"
     }
   },
   "skills": {
-    "Almacenamiento & SQL": [
-      { "name": "SQL Server / T-SQL", "level": 95, "icon": "database", "desc": "Consultas complejas, optimización y diseño de ETLs estructurados." },
-      { "name": "PostgreSQL", "level": 80, "icon": "server", "desc": "Manejo de bases de datos relacionales y funciones analíticas avanzadas." },
-      { "name": "Modelado Dimensional", "level": 90, "icon": "network", "desc": "Diseño de esquemas estrella/copo de nieve para alta velocidad de consulta." }
+    "Herramientas Core (Software)": [
+      { "name": "SQL Server (T-SQL)", "level": 95, "icon": "database", "desc": "Diseño de ETLs, Store Procedures y optimización de consultas complejas para grandes volúmenes de datos." },
+      { "name": "Power BI & DAX", "level": 90, "icon": "bar-chart-2", "desc": "Modelado semántico, medidas DAX avanzadas y desarrollo de dashboards ejecutivos interactivos." },
+      { "name": "Python", "level": 85, "icon": "code", "desc": "Procesamiento y limpieza de datos automatizada con Pandas, NumPy y visualizaciones avanzadas." },
+      { "name": "Excel Avanzado", "level": 90, "icon": "table", "desc": "Power Query, modelado de datos financieros y automatización de procesos mediante Macros/VBA." }
     ],
-    "Business Intelligence": [
-      { "name": "Power BI (DAX)", "level": 90, "icon": "bar-chart-2", "desc": "Modelado DAX y desarrollo de dashboards ejecutivos de alto impacto." },
-      { "name": "Excel", "level": 98, "icon": "table", "desc": "Power Query, modelado financiero y automatización de procesos con macros." },
-      { "name": "Data Storytelling", "level": 85, "icon": "presentation", "desc": "Traducción de datos técnicos en narrativas de negocio accionables." }
+    "Conocimiento Analítico (Dominio)": [
+      { "name": "Data Modeling", "level": 92, "icon": "network", "desc": "Diseño robusto de Modelos Dimensionales (Star Schema / Snowflake) garantizando escalabilidad." },
+      { "name": "Estadística Aplicada", "level": 80, "icon": "line-chart", "desc": "Análisis descriptivo, pruebas de hipótesis y detección de anomalías para validación de datos." },
+      { "name": "Business Intelligence", "level": 88, "icon": "pie-chart", "desc": "Traducción de requerimientos de negocio en KPIs técnicos y métricas de desempeño." },
+      { "name": "Control de Versiones", "level": 85, "icon": "git-branch", "desc": "Gestión de repositorios en Git/GitHub para integración y documentación continua de código." }
     ],
-    "Ciencia de Datos": [
-      { "name": "Python", "level": 85, "icon": "code", "desc": "Limpieza de datos, análisis exploratorio y automatización de procesos." },
-      { "name": "Estadística Aplicada", "level": 75, "icon": "line-chart", "desc": "Análisis descriptivo y detección de anomalías para asegurar la calidad de datos." },
-      { "name": "Análisis Predictivo", "level": 70, "icon": "trending-up", "desc": "Modelos básicos de proyección para identificar tendencias a futuro." }
-    ],
-    "Ingeniería Core": [
-      { "name": "ETL & Pipelines", "level": 92, "icon": "workflow", "desc": "Orquestación de flujos de datos desde la extracción hasta la carga." },
-      { "name": "Git / GitHub", "level": 88, "icon": "git-branch", "desc": "Control de versiones, documentación y colaboración en repositorios." },
-      { "name": "Automatización", "level": 85, "icon": "cpu", "desc": "Scripts para reducción de tareas manuales y optimización de tiempos." }
+    "Conocimiento Analíticoa (Dominio)": [
+      { "name": "Data Modeling", "level": 92, "icon": "network", "desc": "Diseño robusto de Modelos Dimensionales (Star Schema / Snowflake) garantizando escalabilidad." },
+      { "name": "Estadística Aplicada", "level": 80, "icon": "line-chart", "desc": "Análisis descriptivo, pruebas de hipótesis y detección de anomalías para validación de datos." },
+      { "name": "Business Intelligence", "level": 88, "icon": "pie-chart", "desc": "Traducción de requerimientos de negocio en KPIs técnicos y métricas de desempeño." },
+      { "name": "Control de Versiones", "level": 85, "icon": "git-branch", "desc": "Gestión de repositorios en Git/GitHub para integración y documentación continua de código." }
     ]
   },
   "projects": [
     {
       "id": "northwind-pipeline",
       "title": "Pipeline E2E: Northwind Analytics",
-      "category": "Retail & Sales",
+      "category": "Retail",
       "thumbnail": "",
-      "short_desc": "Diseño de un modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
-      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos y estandarización, y finalmente se cargan en un modelo analítico optimizado para Power BI.",
+      "short_desc": "Diseño de modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
+      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos, y se cargan en un modelo analítico optimizado para Power BI.",
       "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
-      "metrics": { "Volumen Procesado": "1.5M+", "Precisión": "99.9%", "Latencia Reportes": "-40%" },
+      "metrics": { "Volumen": "1.5M+", "Precisión": "99.9%", "Latencia": "-40%" },
+      "images": [""],
+      "links": { "github": "https://github.com/tu-usuario/northwind", "youtube": "" }
+    },
+    {
+      "id": "northwind-pipeline",
+      "title": "Pipeline E2E: Northwind Analytics",
+      "category": "Retail",
+      "thumbnail": "",
+      "short_desc": "Diseño de modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
+      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos, y se cargan en un modelo analítico optimizado para Power BI.",
+      "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
+      "metrics": { "Volumen": "1.5M+", "Precisión": "99.9%", "Latencia": "-40%" },
+      "images": [""],
+      "links": { "github": "https://github.com/tu-usuario/northwind", "youtube": "" }
+    },
+    {
+      "id": "northwind-pipeline",
+      "title": "Pipeline E2E: Northwind Analytics",
+      "category": "Retail",
+      "thumbnail": "",
+      "short_desc": "Diseño de modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
+      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos, y se cargan en un modelo analítico optimizado para Power BI.",
+      "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
+      "metrics": { "Volumen": "1.5M+", "Precisión": "99.9%", "Latencia": "-40%" },
+      "images": [""],
+      "links": { "github": "https://github.com/tu-usuario/northwind", "youtube": "" }
+    },
+    {
+      "id": "northwind-pipeline",
+      "title": "Pipeline E2E: Northwind Analytics",
+      "category": "Retail",
+      "thumbnail": "",
+      "short_desc": "Diseño de modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
+      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos, y se cargan en un modelo analítico optimizado para Power BI.",
+      "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
+      "metrics": { "Volumen": "1.5M+", "Precisión": "99.9%", "Latencia": "-40%" },
+      "images": [""],
+      "links": { "github": "https://github.com/tu-usuario/northwind", "youtube": "" }
+    },
+    {
+      "id": "northwind-pipeline",
+      "title": "Pipeline E2E: Northwind Analytics",
+      "category": "Retail",
+      "thumbnail": "",
+      "short_desc": "Diseño de modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
+      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos, y se cargan en un modelo analítico optimizado para Power BI.",
+      "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
+      "metrics": { "Volumen": "1.5M+", "Precisión": "99.9%", "Latencia": "-40%" },
+      "images": [""],
+      "links": { "github": "https://github.com/tu-usuario/northwind", "youtube": "" }
+    },
+    {
+      "id": "northwind-pipeline",
+      "title": "Pipeline E2E: Northwind Analytics",
+      "category": "Retail",
+      "thumbnail": "",
+      "short_desc": "Diseño de modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
+      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos, y se cargan en un modelo analítico optimizado para Power BI.",
+      "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
+      "metrics": { "Volumen": "1.5M+", "Precisión": "99.9%", "Latencia": "-40%" },
       "images": [""],
       "links": { "github": "https://github.com/tu-usuario/northwind", "youtube": "" }
     },
     {
       "id": "finance-audit",
-      "title": "Auditoría de Mercado Financiero",
+      "title": "Auditoría Financiera",
       "category": "Finanzas",
       "thumbnail": "",
-      "short_desc": "Automatización de reportes mensuales y análisis de tendencias con estadística descriptiva.",
-      "full_desc": "Construcción de una herramienta de auditoría continua en Python y Excel avanzado para analizar la integridad de conjuntos de datos financieros. El modelo detecta anomalías de facturación mediante técnicas estadísticas, automatizando el reporte normativo mensual.",
+      "short_desc": "Automatización de reportes mensuales y análisis de tendencias con estadística.",
+      "full_desc": "Construcción de una herramienta de auditoría continua en Python y Excel para analizar la integridad de datos financieros. Detecta anomalías mediante técnicas estadísticas, automatizando el reporte mensual.",
       "stack": ["PYTHON", "EXCEL", "ESTADÍSTICA"],
-      "metrics": { "Cobertura Datos": "100%", "Errores Prevenidos": "12%", "Ahorro": "$15k / año" },
-      "images": ["", ""],
+      "metrics": { "Cobertura": "100%", "Prevención": "12%", "Ahorro": "$15k/año" },
+      "images": [""],
       "links": { "github": "https://github.com/tu-usuario/audit-tool", "youtube": "" }
     },
     {
       "id": "health-logistics",
-      "title": "Optimización de Triaje Hospitalario",
+      "title": "Optimización de Triaje",
       "category": "Salud Pública",
       "thumbnail": "",
-      "short_desc": "Análisis del flujo de pacientes con datos históricos para predecir cuellos de botella.",
-      "full_desc": "Proyecto enfocado en la logística y administración de centros médicos. Se estructuró una base de datos relacional en SQL y se integró con Power BI para crear métricas en tiempo real sobre el flujo de triaje.",
+      "short_desc": "Análisis de flujo de pacientes con datos históricos para predecir cuellos de botella.",
+      "full_desc": "Proyecto enfocado en la administración de centros médicos. Se estructuró una base de datos en SQL y se integró con Power BI para crear métricas en tiempo real sobre el flujo de triaje.",
       "stack": ["SQL SERVER", "POWER BI"],
-      "metrics": { "Analizados": "500k+", "Tiempos Espera": "-15%", "Saturación": "-10%" },
+      "metrics": { "Analizados": "500k+", "Tiempos": "-15%", "Saturación": "-10%" },
       "images": [""],
       "links": { "github": "https://github.com/tu-usuario/health", "youtube": "" }
     }
