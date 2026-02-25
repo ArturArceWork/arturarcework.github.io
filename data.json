@@ -1,67 +1,348 @@
 {
   "profile": {
     "name": "Artur Arce",
-    "role": "DATA ANALYST / ANALYTICS ENGINEER",
-    "bio": "Profesional de datos con sólida experiencia transformando información compleja en soluciones analíticas y estratégicas. Especializado en el desarrollo de pipelines ETL, modelado de bases de datos relacionales y creación de dashboards ejecutivos de alto impacto. Apasionado por optimizar la toma de decisiones, identificar oportunidades de mejora y construir arquitecturas de datos escalables que impulsen el crecimiento del negocio.",
-    "location": "Lima, Perú",
-    "degree": "Ing. de Sistemas",
-    "role_short": "Data Analyst",
-    "email": "arturarce@ejemplo.com",
+    "role": "DATA ENGINEER | ANALYTICS ENGINEER | DATA SCIENTIST | DATA ANALYST",
+    "location": "Lima, Peru",
+    "degree": "Systems Engineering",
+    "role_short": "Full-Stack Data Professional",
+    "email": "arturarce@example.com",
     "socials": {
       "linkedin": "https://linkedin.com/in/arturarce",
       "github": "https://github.com/arturarce"
     }
   },
   "skills": {
-    "Herramientas Core (Software)": [
-      { "name": "SQL Server (T-SQL)", "icon": "database", "desc": "Diseño de ETLs, Store Procedures y optimización de consultas complejas para grandes volúmenes de datos." },
-      { "name": "Power BI & DAX", "icon": "bar-chart-2", "desc": "Modelado semántico, medidas DAX avanzadas y desarrollo de dashboards ejecutivos interactivos." },
-      { "name": "Python", "icon": "code", "desc": "Procesamiento y limpieza de datos automatizada con Pandas, NumPy y visualizaciones avanzadas." },
-      { "name": "Excel Avanzado", "icon": "table", "desc": "Power Query, modelado de datos financieros y automatización de procesos mediante Macros/VBA." }
+    "Core Tools & DevOps": [
+      { "name": "Advanced Python & SQL", "icon": "code", "desc": "Process automation, complex scripting, and relational database engine optimization." },
+      { "name": "Git & GitHub Actions", "icon": "git-branch", "desc": "Advanced version control, collaborative workflows, and CI/CD automation." },
+      { "name": "Docker & Containers", "icon": "package", "desc": "Creation of isolated and portable environments for consistent data app deployments." },
+      { "name": "Linux & Bash", "icon": "terminal", "desc": "Server management, scheduled task automation, and environment administration." },
+      { "name": "Terraform (IaC)", "icon": "cpu", "desc": "Infrastructure as code for reproducible deployment of cloud data architectures." }
     ],
-    "Conocimiento Analítico (Dominio)": [
-      { "name": "Data Modeling", "icon": "network", "desc": "Diseño robusto de Modelos Dimensionales (Star Schema / Snowflake) garantizando escalabilidad." },
-      { "name": "Estadística Aplicada", "icon": "line-chart", "desc": "Análisis descriptivo, pruebas de hipótesis y detección de anomalías para validación de datos." },
-      { "name": "Business Intelligence", "icon": "pie-chart", "desc": "Traducción de requerimientos de negocio en KPIs técnicos y métricas de desempeño." },
-      { "name": "Control de Versiones", "icon": "git-branch", "desc": "Gestión de repositorios en Git/GitHub para integración y documentación continua de código." }
+    "Data Engineering": [
+      { "name": "Apache Airflow", "icon": "wind", "desc": "Complex workflow orchestration using DAGs to guarantee pipeline execution." },
+      { "name": "PySpark / Spark", "icon": "zap", "desc": "Distributed processing of massive data volumes and high-speed transformations." },
+      { "name": "Kafka & Streaming", "icon": "activity", "desc": "Real-time data ingestion and event-driven architectures for immediate analytics." },
+      { "name": "Data Warehousing", "icon": "database", "desc": "Physical data warehouse design, index optimization, and table partitioning." },
+      { "name": "Apache Flink", "icon": "fast-forward", "desc": "Stream processing with low latency for extreme real-time event analytics." }
+    ],
+    "Analytics Engineering": [
+      { "name": "dbt (Data Build Tool)", "icon": "layers", "desc": "Data transformation within the DW using modular SQL, version control, and automated testing." },
+      { "name": "Dimensional Modeling", "icon": "network", "desc": "Star Schema and Snowflake design using Kimball methodology to optimize analytical consumption." },
+      { "name": "Data Quality", "icon": "check-shield", "desc": "Implementation of validation frameworks to ensure data accuracy and reliability." },
+      { "name": "Semantic Layer", "icon": "box", "desc": "Construction of semantic layers to standardize business metrics across the organization." },
+      { "name": "Data Lineage", "icon": "map", "desc": "End-to-end data traceability to ensure governance and technical transparency." }
+    ],
+    "Data Science": [
+      { "name": "Machine Learning", "icon": "cpu", "desc": "Training supervised and unsupervised models for pattern prediction and classification." },
+      { "name": "Time Series", "icon": "trending-up", "desc": "Demand forecasting and temporal metrics using advanced regression algorithms." },
+      { "name": "Statistical Analysis", "icon": "bar-chart", "desc": "Use of inferential statistics and hypothesis testing for data-driven decision-making." },
+      { "name": "MLOps", "icon": "share-2", "desc": "Deployment of predictive models into production and continuous performance monitoring." },
+      { "name": "NLP & LLMs", "icon": "message-circle", "desc": "Natural language processing and deployment of intelligent agents for text analytics." }
+    ],
+    "Analysis & Visualization": [
+      { "name": "Power BI (DAX / M)", "icon": "layout", "desc": "Complex semantic modeling and advanced business logic development using DAX." },
+      { "name": "Advanced Excel", "icon": "table", "desc": "Power Query, financial data modeling, and process automation via Macros/VBA." },
+      { "name": "Advanced Dashboards", "icon": "monitor", "desc": "Design of intuitive analytical interfaces focused on the business user experience." },
+      { "name": "Executive Storytelling", "icon": "presentation", "desc": "Translation of technical findings into visual narratives that drive strategic execution." },
+      { "name": "Looker / Tableau", "icon": "pie-chart", "desc": "Creation of dynamic visualizations and self-service BI platforms for various business units." }
+    ],
+    "Cloud & Platforms": [
+      { "name": "Microsoft Azure", "icon": "cloud", "desc": "Implementation of solutions using Data Factory, Databricks, and Azure SQL Database." },
+      { "name": "Amazon Web Services", "icon": "cloud", "desc": "Storage management in S3 and analytical processing using Amazon Redshift / Athena." },
+      { "name": "Google Cloud Platform", "icon": "cloud", "desc": "Massive data scaling with BigQuery, Dataflow, and Vertex AI for modern ML architectures." },
+      { "name": "Snowflake", "icon": "server", "desc": "Cloud data warehousing and concurrent workload optimization." },
+      { "name": "Databricks", "icon": "hard-drive", "desc": "Configuration and scaling of unified, high-performance analytical engines." }
     ]
   },
   "projects": [
     {
-      "id": "northwind-pipeline",
-      "title": "Pipeline E2E: Northwind Analytics",
+      "id": "ecomm-01",
+      "title": "Smart Churn Predictor",
       "category": "Retail",
-      "thumbnail": "",
-      "short_desc": "Diseño de modelo Star Schema y limpieza con Python para un Dashboard interactivo.",
-      "full_desc": "Desarrollo completo de un flujo ETL automatizado. Los datos transaccionales se extraen desde SQL Server, se procesan mediante scripts de Python para el tratamiento de valores nulos, y se cargan en un modelo analítico optimizado para Power BI.",
-      "stack": ["SQL SERVER", "PYTHON", "POWER BI"],
-      "metrics": { "Volumen": "1.5M+", "Precisión": "99.9%", "Latencia": "-40%" },
-      "images": [""],
-      "links": { "github": "https://github.com/tu-usuario/northwind", "youtube": "" }
+      "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "E2E Data Engineering & Science pipeline to predict customer churn.",
+      "full_desc": "Design of a workflow that extracts sales data, transforms it using dbt, and applies XGBoost algorithms to alert the marketing team about at-risk customers.",
+      "stack": ["PYTHON", "XGBOOST", "DBT", "AIRFLOW", "SNOWFLAKE", "POWER BI"],
+      "metrics": { "Retention": "+15%", "Accuracy": "92%", "ROI": "High" },
+      "images": ["https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"],
+      "links": { "github": "https://github.com/arturarce/churn", "youtube": "" }
     },
     {
-      "id": "finance-audit",
-      "title": "Auditoría Financiera",
-      "category": "Finanzas",
-      "thumbnail": "",
-      "short_desc": "Automatización de reportes mensuales y análisis de tendencias con estadística.",
-      "full_desc": "Construcción de una herramienta de auditoría continua en Python y Excel para analizar la integridad de datos financieros. Detecta anomalías mediante técnicas estadísticas, automatizando el reporte mensual.",
-      "stack": ["PYTHON", "EXCEL", "ESTADÍSTICA"],
-      "metrics": { "Cobertura": "100%", "Prevención": "12%", "Ahorro": "$15k/año" },
+      "id": "ecomm-02",
+      "title": "Real-time Stock Engine",
+      "category": "Retail",
+      "thumbnail": "https://images.unsplash.com/photo-1586528116311-ad8c73875084?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Real-time data ingestion with Spark and Kafka to optimize inventory.",
+      "full_desc": "Data Engineering architecture using Kafka to process live sales data and update optimal stock levels using demand forecasting models.",
+      "stack": ["KAFKA", "SPARK", "AZURE", "DOCKER", "PYTHON", "SQL"],
+      "metrics": { "Stockouts": "-25%", "Latency": "Real-time", "Efficiency": "98%" },
       "images": [""],
-      "links": { "github": "https://github.com/tu-usuario/audit-tool", "youtube": "" }
+      "links": { "github": "https://github.com/arturarce/stock", "youtube": "" }
     },
     {
-      "id": "health-logistics",
-      "title": "Optimización de Triaje",
-      "category": "Salud Pública",
-      "thumbnail": "",
-      "short_desc": "Análisis de flujo de pacientes con datos históricos para predecir cuellos de botella.",
-      "full_desc": "Proyecto enfocado en la administración de centros médicos. Se estructuró una base de datos en SQL y se integró con Power BI para crear métricas en tiempo real sobre el flujo de triaje.",
-      "stack": ["SQL SERVER", "POWER BI"],
-      "metrics": { "Analizados": "500k+", "Tiempos": "-15%", "Saturación": "-10%" },
+      "id": "ecomm-03",
+      "title": "CLV Forecasting System",
+      "category": "Retail",
+      "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Customer Lifetime Value prediction on Google Cloud Platform.",
+      "full_desc": "Predictive model deployed on Vertex AI estimating the future value of customers based on historical behavior and advanced segmentation.",
+      "stack": ["GCP", "BIGQUERY", "PYTHON", "VERTEX AI", "LOOKER", "SQL"],
+      "metrics": { "Accuracy": "88%", "Ad Spend": "-12%", "CLV": "+10%" },
       "images": [""],
-      "links": { "github": "https://github.com/tu-usuario/health", "youtube": "" }
+      "links": { "github": "https://github.com/arturarce/clv", "youtube": "" }
+    },
+    {
+      "id": "ecomm-04",
+      "title": "Dynamic Pricing Engine",
+      "category": "Retail",
+      "thumbnail": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Dynamic pricing algorithm based on competition and demand.",
+      "full_desc": "Development of a pricing engine that adjusts tags in real-time by analyzing the external market and internal inventory levels.",
+      "stack": ["PYTHON", "SCIKIT-LEARN", "AWS", "REDSHIFT", "LAMBDA", "DYNAMODB"],
+      "metrics": { "Margin": "+7%", "Competitiveness": "+20%", "Revenue": "+15%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/pricing", "youtube": "" }
+    },
+    {
+      "id": "fin-01",
+      "title": "AI Audit Automation",
+      "category": "Finance",
+      "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Tax audit automation using ML and anomaly detection.",
+      "full_desc": "System for detecting irregularities in accounting transactions. Uses Isolation Forest to identify suspicious records before the financial close.",
+      "stack": ["PYTHON", "SCIKIT-LEARN", "SQL SERVER", "EXCEL", "PANDAS", "VBA"],
+      "metrics": { "Errors Found": "+40%", "Closing Time": "-60%", "Accuracy": "95%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/audit", "youtube": "" }
+    },
+    {
+      "id": "fin-02",
+      "title": "Consolidated Wealth View",
+      "category": "Finance",
+      "thumbnail": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Modern Data Warehouse in Snowflake for consolidated reporting.",
+      "full_desc": "Implementation of dbt and Snowflake to unify multiple banking sources into a single dimensional model for executive KPIs.",
+      "stack": ["SNOWFLAKE", "DBT", "AIRFLOW", "PYTHON", "GIT", "POWER BI"],
+      "metrics": { "Data Trust": "100%", "Availability": "24/7", "Manual Work": "-90%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/fin-reporting", "youtube": "" }
+    },
+    {
+      "id": "fin-03",
+      "title": "Tax Compliance Optimizer",
+      "category": "Finance",
+      "thumbnail": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Automated tax compliance pipeline deployed on AWS.",
+      "full_desc": "Structuring massive billing data to ensure compliance with local regulations and detect potential tax savings.",
+      "stack": ["AWS", "ATHENA", "S3", "GLUE", "PYTHON", "QUICKSIGHT"],
+      "metrics": { "Compliance": "100%", "Tax Savings": "5%", "Audit Speed": "+50%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/tax", "youtube": "" }
+    },
+    {
+      "id": "fin-04",
+      "title": "Investment Risk Analytics",
+      "category": "Finance",
+      "thumbnail": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Portfolio risk analysis using Monte Carlo simulations.",
+      "full_desc": "Simulation tool designed to predict asset volatility and optimize capital distribution within investment portfolios.",
+      "stack": ["PYTHON", "NUMPY", "PANDAS", "MATPLOTLIB", "AZURE", "POWER BI"],
+      "metrics": { "Risk Mitig.": "15%", "Portfolio ROI": "+12%", "Backtesting": "99%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/invest", "youtube": "" }
+    },
+    {
+      "id": "bank-01",
+      "title": "Credit Scoring 4.0",
+      "category": "Banking",
+      "thumbnail": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Credit risk modeling based on deep transactional behavior.",
+      "full_desc": "Credit evaluation algorithm that analyzes transactional variables to assign dynamic credit limits in seconds.",
+      "stack": ["PYTHON", "SQL", "DATABRICKS", "AWS", "MLFLOW", "SPARK"],
+      "metrics": { "Default Rate": "-8%", "Approval Time": "Instant", "AUC": "0.89" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/scoring", "youtube": "" }
+    },
+    {
+      "id": "bank-02",
+      "title": "Fraud Shield Real-time",
+      "category": "Banking",
+      "thumbnail": "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Real-time fraud prevention system for credit card transactions.",
+      "full_desc": "Live transaction monitor that blocks suspicious operations using neural network models and strict business rules.",
+      "stack": ["KAFKA", "FLINK", "PYTHON", "REDIS", "GCP", "SQL"],
+      "metrics": { "Fraud Prevented": "$200k/mo", "False Positives": "-10%", "Latency": "<50ms" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/fraud", "youtube": "" }
+    },
+    {
+      "id": "bank-03",
+      "title": "AML Monitor Pipeline",
+      "category": "Banking",
+      "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Anti-Money Laundering detection using graph analytics.",
+      "full_desc": "Pipeline identifying circular transaction networks and suspicious behavior linked to money laundering.",
+      "stack": ["NEO4J", "PYTHON", "SPARK", "DOCKER", "AIRFLOW", "POWER BI"],
+      "metrics": { "Detection Rate": "+35%", "True Alerts": "+50%", "Response Time": "-40%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/aml", "youtube": "" }
+    },
+    {
+      "id": "bank-04",
+      "title": "Next Best Offer (NBO)",
+      "category": "Banking",
+      "thumbnail": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Personalized financial product recommendation engine.",
+      "full_desc": "Intelligent recommender that suggests the next best product (insurance, credit, savings) based on the customer's lifecycle.",
+      "stack": ["AZURE", "DATABRICKS", "SCIKIT-LEARN", "SQL", "PYSPARK", "ADLS"],
+      "metrics": { "Conversion": "+12%", "Avg Ticket": "+15%", "Churn": "-5%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/nbo", "youtube": "" }
+    },
+    {
+      "id": "health-01",
+      "title": "Hospital Flow Optimizer",
+      "category": "Healthcare",
+      "thumbnail": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Wait-time optimization for hospital emergency rooms.",
+      "full_desc": "Analysis of bottlenecks through data simulation to redistribute medical staff based on demand peaks.",
+      "stack": ["PYTHON", "SIMPY", "SQL", "POWER BI", "EXCEL", "PANDAS"],
+      "metrics": { "Wait Time": "-25%", "Patients/Hr": "+18%", "Saturation": "-12%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/health-flow", "youtube": "" }
+    },
+    {
+      "id": "health-02",
+      "title": "Readmission Risk Engine",
+      "category": "Healthcare",
+      "thumbnail": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "30-day readmission prediction for chronic patients.",
+      "full_desc": "Classification model evaluating the probability of a patient relapse based on clinical history and treatments.",
+      "stack": ["PYTHON", "XGBOOST", "AZURE", "SQL SERVER", "PANDAS", "MLFLOW"],
+      "metrics": { "Recall": "85%", "Bed Availability": "+10%", "Hosp. Cost": "-8%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/readmission", "youtube": "" }
+    },
+    {
+      "id": "health-03",
+      "title": "Medical Imaging AI",
+      "category": "Healthcare",
+      "thumbnail": "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Pathology detection in X-Rays using computer vision.",
+      "full_desc": "Image processing pipeline leveraging convolutional neural networks to assist in early disease diagnosis.",
+      "stack": ["TENSORFLOW", "PYTHON", "OPENCV", "AWS", "SAGEMAKER", "S3"],
+      "metrics": { "Accuracy": "94%", "Time-to-Diag": "-70%", "Medical Support": "High" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/med-img", "youtube": "" }
+    },
+    {
+      "id": "health-04",
+      "title": "Pharma Supply Chain 360",
+      "category": "Healthcare",
+      "thumbnail": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Traceability visibility for highly sensitive medications.",
+      "full_desc": "Integrated dashboard monitoring drug temperature and location throughout the entire cold chain process.",
+      "stack": ["IOT-HUB", "AZURE", "STREAM-ANALYTICS", "SQL", "POWER BI", "PYTHON"],
+      "metrics": { "Losses": "-40%", "Compliance": "100%", "Visibility": "Real-time" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/pharma", "youtube": "" }
+    },
+    {
+      "id": "log-01",
+      "title": "AI Route Optimizer",
+      "category": "Logistics",
+      "thumbnail": "https://images.unsplash.com/photo-1586528116311-ad8c73875084?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Last-mile route optimization integrating traffic data.",
+      "full_desc": "Algorithm calculating the most efficient route for delivery fleets, integrating live traffic APIs and load constraints.",
+      "stack": ["PYTHON", "OR-TOOLS", "DOCKER", "GCP", "POSTGRES", "PANDAS"],
+      "metrics": { "Fuel Used": "-18%", "Deliveries/Day": "+25%", "Mileage": "-12%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/routes", "youtube": "" }
+    },
+    {
+      "id": "log-02",
+      "title": "Warehouse Digital Twin",
+      "category": "Logistics",
+      "thumbnail": "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "3D simulation and monitoring of warehouse operations.",
+      "full_desc": "Modeling picking and packing flows to identify physical interferences and optimize the operational layout.",
+      "stack": ["SQL SERVER", "PYTHON", "POWER BI", "ANYLOGIC", "EXCEL", "PANDAS"],
+      "metrics": { "Picking Speed": "+20%", "Error Rate": "-30%", "Opex": "-10%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/warehouse", "youtube": "" }
+    },
+    {
+      "id": "log-03",
+      "title": "Supply Chain Control Tower",
+      "category": "Logistics",
+      "thumbnail": "https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Global control tower for monitoring shipping containers.",
+      "full_desc": "Platform centralizing data from shipping lines, customs, and ground transport into a single analytical 'source of truth'.",
+      "stack": ["AWS", "REDSHIFT", "DBT", "AIRFLOW", "PYTHON", "TABLEAU"],
+      "metrics": { "Data Trust": "100%", "ETA Accuracy": "+40%", "Cost Control": "+15%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/tower", "youtube": "" }
+    },
+    {
+      "id": "log-04",
+      "title": "Last-Mile Delivery Bot",
+      "category": "Logistics",
+      "thumbnail": "https://images.unsplash.com/photo-1620005728867-b5003f9b2d03?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Automated order tracking and customer notifications.",
+      "full_desc": "Event-driven system that triggers customer alerts and optimizes delivery windows based on the driver's live GPS position.",
+      "stack": ["KAFKA", "PYTHON", "MONGODB", "DOCKER", "AWS", "LAMBDA"],
+      "metrics": { "CX Score": "+30%", "Failed Drops": "-15%", "Automation": "90%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/last-mile", "youtube": "" }
+    },
+    {
+      "id": "man-01",
+      "title": "Predictive Maintenance AI",
+      "category": "Manufacturing",
+      "thumbnail": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Industrial machinery failure prediction using IoT sensors.",
+      "full_desc": "Analysis of vibration and temperature data to predict when a machine requires maintenance before unplanned downtime occurs.",
+      "stack": ["PYTHON", "XGBOOST", "DATABRICKS", "AZURE", "IOT-CENTRAL", "POWER BI"],
+      "metrics": { "Downtime": "-35%", "Maint. Cost": "-20%", "Asset Life": "+15%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/maintenance", "youtube": "" }
+    },
+    {
+      "id": "man-02",
+      "title": "Energy Consumption Forecast",
+      "category": "Manufacturing",
+      "thumbnail": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Energy demand forecasting for cost optimization.",
+      "full_desc": "Time series model estimating the plant's electricity consumption to negotiate tariffs and reduce peak demand costs.",
+      "stack": ["PROPHET", "PYTHON", "SQL SERVER", "PANDAS", "DOCKER", "POWER BI"],
+      "metrics": { "Energy Bill": "-12%", "Accuracy": "94%", "CO2 Footprint": "-8%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/energy", "youtube": "" }
+    },
+    {
+      "id": "man-03",
+      "title": "Computer Vision Quality",
+      "category": "Manufacturing",
+      "thumbnail": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Automated quality control on the production line.",
+      "full_desc": "Detection of aesthetic defects in finished products using high-speed cameras and Deep Learning models.",
+      "stack": ["PYTORCH", "PYTHON", "OPENCV", "GCP", "KUBERNETES", "SQL"],
+      "metrics": { "Defect Detect": "99.2%", "Inspect Time": "-90%", "Waste": "-5%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/quality", "youtube": "" }
+    },
+    {
+      "id": "man-04",
+      "title": "OEE Real-time Monitor",
+      "category": "Manufacturing",
+      "thumbnail": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&q=80",
+      "short_desc": "Automatic calculation of Overall Equipment Effectiveness (OEE).",
+      "full_desc": "Pipeline connecting machine PLCs with executive dashboards to measure Availability, Performance, and Quality in real-time.",
+      "stack": ["SQL", "PYTHON", "POWER BI", "AIRFLOW", "AZURE", "DAX"],
+      "metrics": { "OEE": "+10%", "Visibility": "100%", "Response Time": "-50%" },
+      "images": [""],
+      "links": { "github": "https://github.com/arturarce/oee", "youtube": "" }
     }
   ]
 }
