@@ -1,585 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Artur Arce | Data Professional</title>
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4248/4248443.png">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Soldado del Rey - Currículum Completo</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Devicon for Extensive Tech Stack Icons -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
     
-    <style>
-        body { font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
-        main { flex: 1; }
-        
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; }
-        
-        .page-transition { animation: fadeIn 0.4s ease-out forwards; }
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(15px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-        
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.1); border-color: #cbd5e1; }
-
-        .modal-overlay { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); }
-        .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-
-        .svg-icon-wrap svg { width: 100%; height: 100%; object-fit: contain; }
-    </style>
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
                     colors: {
-                        indigo: { 50: '#eef2ff', 100: '#e0e7ff', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 900: '#312e81' },
-                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 800: '#1e293b', 900: '#0f172a' }
+                        primary: '#1e3a8a', // Azul Rey
+                        secondary: '#3b82f6', // Azul claro
+                        accent: '#f59e0b', // Dorado/Amarillo
+                        dark: '#0f172a',
+                        soft: '#f8fafc',
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Animaciones */
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Scrollbar estilizado */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+        /* Ajuste de altura para layout fluido */
+        .layout-height { height: calc(100vh - 88px); } /* 88px es aprox la altura del header */
+    </style>
 </head>
-<body class="bg-[#fafafa] text-slate-800 antialiased">
+<body class="bg-slate-100 text-slate-800 font-sans h-screen flex flex-col overflow-hidden">
 
-    <!-- ================= NAVBAR ================= -->
-    <nav class="fixed top-0 w-full z-50 glass shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <button onclick="navigate('home')" class="text-xl md:text-2xl font-black tracking-tight text-indigo-700 flex items-center">
-            <span style="display: inline-block; width: 32px; height: 32px; overflow: hidden;">
-                <img src="https://cdn-icons-png.flaticon.com/512/657/657695.png" 
-                    style="width: 32px; filter: drop-shadow(32px 0 0 #7971d9); transform: translateX(-32px);">
-            </span>
-                Artur<span class="text-slate-900">Arce</span>
-            </button>
-            
-            <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                <button onclick="navigate('home')" class="nav-link text-indigo-600 font-bold transition hover:text-indigo-800" data-target="home">Home</button>
-                <button onclick="navigate('projects')" class="nav-link text-slate-600 transition hover:text-indigo-600" data-target="projects">Projects</button>
-                <button onclick="navigate('about')" class="nav-link text-slate-600 transition hover:text-indigo-600" data-target="about">About</button>
-                <button onclick="navigate('contact')" class="px-5 py-2 bg-slate-900 text-white rounded-full hover:bg-indigo-600 transition shadow-sm font-semibold">Contact</button>
+    <!-- HEADER / HERO (Ocupando todo el ancho) -->
+    <header class="bg-gradient-to-r from-dark via-primary to-secondary text-white shadow-lg shrink-0 w-full z-20">
+        <div class="w-full px-6 py-5 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-shield-halved text-accent text-5xl drop-shadow-lg"></i>
+                <div>
+                    <h1 class="font-heading text-3xl md:text-4xl font-black text-accent tracking-wide uppercase drop-shadow-md">El Soldado del Rey</h1>
+                    <p class="text-blue-100 font-semibold text-sm md:text-base tracking-widest">DEFENSA BÍBLICA: 10 MANDAMIENTOS ↔ ARMADURA DE DIOS</p>
+                </div>
             </div>
-            
-            <button class="md:hidden text-slate-800 p-2 focus:outline-none" onclick="toggleMobileMenu()">
-                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-            </button>
+            <div class="mt-4 md:mt-0 text-right hidden lg:block bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/20">
+                <p class="text-sm font-bold text-white"><i class="fa-solid fa-crosshairs mr-2 text-accent"></i>Objetivo:</p>
+                <p class="text-xs text-blue-100">Que los niños aprendan a defenderse espiritualmente.</p>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden pt-20 px-6 flex flex-col space-y-6 shadow-xl border-l border-slate-200">
-        <!-- Replaced multiple toggleMobileMenu() calls with standard navigate() behavior which inherently closes the menu -->
-        <button onclick="navigate('home')" class="text-xl font-bold text-left text-slate-800 hover:text-indigo-600 border-b border-slate-100 pb-3">Home</button>
-        <button onclick="navigate('projects')" class="text-xl font-bold text-left text-slate-800 hover:text-indigo-600 border-b border-slate-100 pb-3">Projects</button>
-        <button onclick="navigate('about')" class="text-xl font-bold text-left text-slate-800 hover:text-indigo-600 border-b border-slate-100 pb-3">About</button>
-        <button onclick="navigate('contact')" class="text-xl font-bold text-left text-indigo-600 pb-3">Contact</button>
-    </div>
-
-    <!-- ================= MAIN CONTAINER ================= -->
-    <main id="content" class="pt-20 md:pt-24 pb-16 w-full flex-grow">
+    <!-- MAIN LAYOUT (Pantalla Completa) -->
+    <div class="flex flex-col md:flex-row w-full layout-height">
         
-        <!-- ================= 1. PAGE: HOME ================= -->
-        <section id="home-page" class="page-section page-transition max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16">
-                
-                <!-- Left Column: Text and Buttons -->
-                <div class="flex-1 space-y-5 md:space-y-6 w-full">
-                    <div class="inline-flex items-center px-4 py-1.5 bg-[#eef2ff] text-[#4338ca] rounded-full text-[10px] md:text-xs font-bold tracking-widest border border-[#dbeafe] shadow-sm">
-                    <span class="w-2 h-2 bg-[#4338ca] rounded-full mr-2 animate-pulse"></span> 
-                    Data Analysis and Analytics Engineer 📊
-                </div>
-                    
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900">
-                        Engineering that <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 italic">speaks</span> with data.
-                    </h1>
-                    
-                    <!-- Buttons -->
-                    <div class="flex flex-wrap gap-3 pt-4">
-                        <button onclick="navigate('projects')" class="px-6 py-3.5 bg-indigo-600 text-white rounded-xl font-bold hover:shadow-lg hover:bg-indigo-700 transition flex items-center shadow-indigo-500/20 text-sm md:text-base">
-                            Explore Projects <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </button>
-                        <button onclick="navigate('about')" class="px-6 py-3.5 bg-white border border-slate-200 text-slate-800 rounded-xl font-bold hover:bg-slate-50 transition flex items-center shadow-sm text-sm md:text-base">
-                            <i data-lucide="user" class="mr-2 w-4 h-4"></i> About Me
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Right Column: Photo and Snapshot -->
-                <div class="flex-1 w-full flex flex-col items-end relative">
-                    
-                    <!-- Photo -->
-                    <div class="w-32 h-32 md:w-52 md:h-52 bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-[4px] md:border-[6px] border-white z-10 md:mr-6 shrink-0">
-                        <img src="./assets/images/profile.jpg" alt="Artur Arce" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80';">
-                    </div>
-                    
-                    <!-- Snapshot -->
-                    <div class="w-full max-w-[420px] bg-[#4f46e5] rounded-[2rem] p-6 md:p-10 text-white shadow-2xl z-20 -mt-8 md:-mt-16 mr-auto md:ml-0 relative overflow-hidden">
-                        <i data-lucide="layers" class="absolute -bottom-8 -right-8 w-32 h-32 md:w-48 md:h-48 text-white/10"></i>
-                        
-                        <div class="relative z-10">
-                            <div class="mb-5 md:mb-8">
-                                <h3 class="text-xl md:text-2xl font-bold flex items-center"><i data-lucide="bar-chart-3" class="w-5 h-5 mr-2 text-indigo-200"></i> Snapshot</h3>
-                            </div>
-                            
-                            <div class="space-y-4 md:space-y-5">
-                                <div>
-                                    <h4 class="text-3xl md:text-4xl font-black tracking-tight leading-none">15+</h4>
-                                    <p class="text-[9px] md:text-[11px] font-bold tracking-widest text-indigo-200 uppercase mt-1">ETL Pipelines Created</p>
-                                </div>
-                                <div class="w-full h-px bg-white/20"></div>
-                                <div>
-                                    <h4 class="text-3xl md:text-4xl font-black tracking-tight leading-none">98%</h4>
-                                    <p class="text-[9px] md:text-[11px] font-bold tracking-widest text-indigo-200 uppercase mt-1">Data Trust & Accuracy</p>
-                                </div>
-                                <div class="w-full h-px bg-white/20"></div>
-                                <div>
-                                    <h4 class="text-3xl md:text-4xl font-black tracking-tight leading-none">500M+</h4>
-                                    <p class="text-[9px] md:text-[11px] font-bold tracking-widest text-indigo-200 uppercase mt-1">Records Processed</p>
-                                </div>
-                                <div class="w-full h-px bg-white/20"></div>
-                                <div>
-                                    <h4 class="text-3xl md:text-4xl font-black tracking-tight leading-none">99.9%</h4>
-                                    <p class="text-[9px] md:text-[11px] font-bold tracking-widest text-indigo-200 uppercase mt-1">Production Uptime</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 2. PAGE: PROJECTS ================= -->
-        <section id="projects-page" class="hidden page-section page-transition max-w-7xl mx-auto px-6 space-y-8">
-            <div class="text-center md:text-left space-y-2">
-                <h2 class="text-3xl md:text-4xl font-black text-slate-900">Featured Projects</h2>
-                <p class="text-slate-500 text-base">A portfolio of data solutions, robust pipelines, and analytics.</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-4" id="project-filters"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4" id="projects-grid">
-                <!-- Injected via JS -->
-            </div>
-        </section>
-
-        <!-- ================= 3. PAGE: ABOUT ================= -->
-        <section id="about-page" class="hidden page-section page-transition max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-12 items-start">
-                
-                <!-- Personal Info -->
-                <div class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
-                    <div>
-                        <h2 class="text-4xl font-black text-slate-900 mb-2">About me 👨‍💻</h2>
-                        <div class="w-16 h-1.5 bg-indigo-600 rounded-full mb-6"></div>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-                        <div class="flex items-center text-sm font-semibold text-slate-700">
-                            <div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center mr-3"><i data-lucide="map-pin" class="w-4 h-4 text-indigo-600"></i></div> 
-                            <span id="about-location"></span>
-                        </div>
-                        <div class="flex items-center text-sm font-semibold text-slate-700">
-                            <div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center mr-3"><i data-lucide="graduation-cap" class="w-4 h-4 text-indigo-600"></i></div> 
-                            <span id="about-degree"></span>
-                        </div>
-                        <div class="flex items-center text-sm font-semibold text-slate-700">
-                            <div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center mr-3"><i data-lucide="briefcase" class="w-4 h-4 text-indigo-600"></i></div> 
-                            <span id="about-role"></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Skills Grid -->
-                <div class="flex-1 w-full space-y-8" id="skills-container">
-                    <!-- Injected via JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 4. PAGE: CONTACT ================= -->
-        <section id="contact-page" class="hidden page-section page-transition max-w-xl mx-auto px-6 text-center space-y-8 py-16">
-            <h2 class="text-4xl font-black text-slate-900">Let's Talk! ☕</h2>
-            <p class="text-slate-500 text-base">Looking to optimize your data processes or have an upcoming project? I'd be happy to discuss how I can help.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <a href="#" id="contact-email" class="p-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                    <i data-lucide="mail" class="mr-2 w-5 h-5"></i> Send Email
-                </a>
-                <a href="#" id="contact-linkedin" target="_blank" class="p-4 bg-white text-slate-800 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition flex items-center justify-center shadow-sm">
-                    <i data-lucide="linkedin" class="mr-2 text-[#0A66C2] w-5 h-5"></i> LinkedIn
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="border-t border-slate-200 bg-white mt-auto">
-        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-xs font-semibold text-slate-400">© 2026 Analytics Portfolio. Built with data.</p>
-            <div class="flex space-x-5" id="footer-socials"></div>
-        </div>
-    </footer>
-
-    <!-- ================= PROJECT MODAL ================= -->
-    <div id="project-modal" class="fixed inset-0 z-[60] hidden flex justify-center items-center px-4 modal-overlay opacity-0 transition-opacity duration-300">
-        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-200 transform scale-95 transition-transform duration-300" id="modal-content">
-            
-            <div class="flex justify-between items-center p-5 md:p-6 border-b border-slate-100 bg-slate-50">
-                <h3 class="text-xl md:text-2xl font-black text-slate-900" id="modal-title">Title</h3>
-                <button onclick="closeModal()" class="p-2 bg-white border border-slate-200 rounded-full hover:bg-slate-100 transition shadow-sm">
-                    <i data-lucide="x" class="w-4 h-4 text-slate-600"></i>
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="w-full md:w-[320px] bg-white shadow-[4px_0_24px_rgba(0,0,0,0.05)] z-10 shrink-0 h-full overflow-y-auto border-r border-slate-200">
+            <div class="p-5">
+                <h3 class="font-heading text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3 pl-2">La Base de la Clase</h3>
+                <button onclick="showContent('rutina')" id="btn-rutina" class="nav-btn w-full text-left px-4 py-3 rounded-xl mb-6 font-bold text-primary bg-blue-50 border border-blue-200 transition-all flex items-center shadow-sm">
+                    <i class="fa-solid fa-clipboard-user w-6 text-accent text-lg"></i>
+                    Estructura Diaria
                 </button>
+
+                <h3 class="font-heading text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3 pl-2">El Plan de 8 Semanas</h3>
+                <nav class="space-y-2 pb-10" id="nav-semanas">
+                    <!-- Botones generados por JS -->
+                </nav>
             </div>
+        </aside>
+
+        <!-- CONTENT AREA (Full Width Flex-1) -->
+        <main class="flex-1 overflow-y-auto bg-slate-50 relative p-4 md:p-10 scroll-smooth w-full" id="main-content">
             
-            <div class="p-5 md:p-6 overflow-y-auto space-y-8 flex-1">
-                <div class="relative w-full rounded-xl overflow-hidden bg-slate-100 shadow-inner group border border-slate-200">
-                    <div class="carousel-track" id="modal-carousel-track"></div>
-                    <button onclick="moveModalCarousel(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition"><i data-lucide="chevron-left" class="w-4 h-4 text-slate-800"></i></button>
-                    <button onclick="moveModalCarousel(1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition"><i data-lucide="chevron-right" class="w-4 h-4 text-slate-800"></i></button>
+            <!-- CONTENIDO: RUTINA DIARIA -->
+            <div id="content-rutina" class="content-section fade-in w-full max-w-7xl mx-auto">
+                <div class="mb-8">
+                    <span class="inline-block px-3 py-1 bg-blue-100 text-primary font-bold rounded-full text-sm mb-3"><i class="fa-solid fa-star mr-2"></i>Guía Maestra</span>
+                    <h2 class="font-heading text-4xl font-black text-slate-800 uppercase">Estructura Base de la Clase</h2>
+                    <p class="text-slate-600 mt-2 text-lg">La rutina fija para cada jueves. El corazón de la clase es enseñarles a defenderse usando la Palabra.</p>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2 space-y-3">
-                        <h4 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-2">Project Overview</h4>
-                        <p class="text-sm font-normal text-slate-600 leading-relaxed text-justify" id="modal-desc"></p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- INICIO -->
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-secondary hover:shadow-xl transition-shadow">
+                        <div class="flex items-center gap-3 mb-5 pb-3 border-b border-slate-100">
+                            <div class="bg-blue-100 text-secondary w-12 h-12 rounded-full flex items-center justify-center font-black text-xl"><i class="fa-solid fa-play"></i></div>
+                            <h3 class="font-heading text-2xl font-black text-slate-800">1. INICIO</h3>
+                        </div>
+                        <ul class="space-y-4 text-sm text-slate-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-hand-wave text-secondary text-lg mt-1 w-5"></i> <span><b>Saludo y Bienvenida:</b> Recepción cálida a los niños.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-hands-praying text-secondary text-lg mt-1 w-5"></i> <span><b>Oración Inicial:</b> Dando gracias y pidiendo guía.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-chalkboard text-secondary text-lg mt-1 w-5"></i> <span><b>Normas en Pizarra:</b><br>1. Convivencia<br>2. <b>Los Mandamientos</b><br>3. Seguridad y Prevención</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-music text-secondary text-lg mt-1 w-5"></i> <span><b>Cantos de Adoración/Alabanza:</b><br>🎵 "Soldado soy de Jesús"<br>🎵 "El Ejército de Dios"<br>🎵 "Ponle la armadura"</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-child-reaching text-secondary text-lg mt-1 w-5"></i> <span><b>Dinámica:</b> Mueve tu cabeza, estira los brazos, salta.</span></li>
+                        </ul>
                     </div>
-                    <div class="space-y-3">
-                        <h4 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-2">Business Impact 🎯</h4>
-                        <div class="grid grid-cols-1 gap-2" id="modal-kpis"></div>
+
+                    <!-- DESARROLLO -->
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-accent hover:shadow-xl transition-shadow relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 text-slate-50 text-9xl z-0"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="flex items-center gap-3 mb-5 pb-3 border-b border-slate-100 relative z-10">
+                            <div class="bg-yellow-100 text-accent w-12 h-12 rounded-full flex items-center justify-center font-black text-xl"><i class="fa-solid fa-book-bible"></i></div>
+                            <h3 class="font-heading text-2xl font-black text-slate-800">2. DESARROLLO</h3>
+                        </div>
+                        <ul class="space-y-4 text-sm text-slate-700 relative z-10">
+                            <li class="flex gap-3"><i class="fa-solid fa-comment-dots text-accent text-lg mt-1 w-5"></i> <span><b>Historia (Repaso):</b> Narración usando pizarra y objetos. Resume lo visto por otros profes y conéctalo al tema de hoy.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-scissors text-accent text-lg mt-1 w-5"></i> <span><b>Manualidad:</b> Pintar dibujos, recortar figuras, crear los objetos de la armadura. Todo listo para vivirlo.</span></li>
+                            <li class="flex gap-3 bg-gradient-to-r from-yellow-50 to-white p-4 rounded-xl border border-yellow-200 shadow-sm mt-4">
+                                <i class="fa-solid fa-theater-masks text-accent text-2xl mt-1 w-8 shrink-0"></i> 
+                                <div>
+                                    <b class="text-base text-slate-900 block mb-1">¡Viviremos la historia!</b>
+                                    El niño tomará parte con los objetos creados. Actuación: Niños defendiéndose (usando la armadura y los mandamientos) vs. Niños atacando (lanzando dardos del enemigo).
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- CIERRE -->
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-slate-700 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center gap-3 mb-5 pb-3 border-b border-slate-100">
+                            <div class="bg-slate-200 text-slate-700 w-12 h-12 rounded-full flex items-center justify-center font-black text-xl"><i class="fa-solid fa-flag-checkered"></i></div>
+                            <h3 class="font-heading text-2xl font-black text-slate-800">3. CIERRE</h3>
+                        </div>
+                        <ul class="space-y-4 text-sm text-slate-700">
+                            <li class="flex gap-3"><i class="fa-solid fa-brain text-slate-500 text-lg mt-1 w-5"></i> <span><b>Lección - Memorización:</b> Textos bíblicos clave de la clase.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-clipboard-question text-slate-500 text-lg mt-1 w-5"></i> <span><b>Preguntas y Respuestas:</b> Dinámica con "Hojas tipo Bingo". Evaluando lo aprendido.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-hands-holding-circle text-slate-500 text-lg mt-1 w-5"></i> <span><b>Oración de Despedida:</b> Orando por los nuevos soldados.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-person-walking-arrow-right text-slate-500 text-lg mt-1 w-5"></i> <span><b>Salida:</b> Salir en orden, marchando como soldados.</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="p-5 md:p-6 bg-slate-50 border-t border-slate-200 flex flex-wrap justify-end gap-3" id="modal-links">
-                <!-- Injected via JS -->
-            </div>
-        </div>
+            <!-- CONTENEDOR PARA LAS SEMANAS (Generado por JS) -->
+            <div id="content-semanas" class="w-full max-w-full"></div>
+
+        </main>
     </div>
 
-    <!-- ================= JAVASCRIPT ================= -->
-    <script type="module">
-        let globalData = { projects: [], skills: {} };
-        let activeCategory = 'All';
-        let currentModalProject = null;
-        let carouselPos = 0;
-        let menuOpen = false;
-
-        // HELPER: Map tech stack to Devicon classes or Custom SVGs 
-        // This solves all icon missing issues gracefully.
-        function getTechIcon(techName) {
-            const t = techName.toUpperCase();
-            
-            // Devicon Mapping - covers 90% of data tools
-            const deviconMap = {
-                'PYTHON': 'devicon-python-plain colored',
-                'SQL': 'devicon-azuresqldatabase-plain colored',
-                'DOCKER': 'devicon-docker-plain colored',
-                'AWS': 'devicon-amazonwebservices-plain-wordmark colored',
-                'AZURE': 'devicon-azure-plain colored',
-                'GCP': 'devicon-googlecloud-plain colored',
-                'KUBERNETES': 'devicon-kubernetes-plain colored',
-                'KAFKA': 'devicon-apachekafka-original colored',
-                'SPARK': 'devicon-apachespark-original colored',
-                'PYSPARK': 'devicon-apachespark-original colored',
-                'POWER BI': 'devicon-microsoft-original colored',
-                'EXCEL': 'devicon-vscode-plain colored',
-                'PANDAS': 'devicon-pandas-original colored',
-                'NUMPY': 'devicon-numpy-original colored',
-                'TENSORFLOW': 'devicon-tensorflow-original colored',
-                'PYTORCH': 'devicon-pytorch-original colored',
-                'MONGODB': 'devicon-mongodb-plain colored',
-                'POSTGRES': 'devicon-postgresql-plain colored',
-                'REDIS': 'devicon-redis-plain colored',
-                'NEO4J': 'devicon-neo4j-plain colored',
-                'GIT': 'devicon-git-plain colored',
-                'SCIKIT-LEARN': 'devicon-scikitlearn-original colored',
-                'AIRFLOW': 'devicon-apacheairflow-plain colored',
-                'TERRAFORM': 'devicon-terraform-plain colored',
-                'BASH': 'devicon-bash-plain colored',
-                'LINUX': 'devicon-linux-plain',
-                'LOOKER': 'devicon-googlecloud-plain colored', // Fallback to GCP for Looker
-            };
-
-            if (deviconMap[t]) {
-                return `<div class="w-6 h-6 flex items-center justify-center text-[1.25rem]"><i class="${deviconMap[t]}"></i></div>`;
-            }
-
-            // Custom SVGs for missing key tools in Devicon (like Snowflake, dbt)
-            const customIcons = {
-                'SNOWFLAKE': `<svg viewBox="0 0 24 24" fill="none" stroke="#29B5E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 2v20M17 5l-10 14M7 5l10 14M12 2l3 3M12 22l-3-3M2 12h20M5 7l3 3M19 17l-3-3M19 7l-3 3M5 17l3-3"></path></svg>`,
-                'DBT': `<svg viewBox="0 0 24 24" class="w-5 h-5"><path d="M10.8 2.4L2.4 10.8v4.8l8.4 8.4h4.8l8.4-8.4v-4.8L15.6 2.4h-4.8z" fill="#FF6B4A"/></svg>`,
-                'XGBOOST': `<svg viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" class="w-5 h-5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`
-            };
-
-            if (customIcons[t]) {
-                return `<div class="w-6 h-6 flex items-center justify-center">${customIcons[t]}</div>`;
-            }
-
-            // Lucide generic fallbacks based on context keywords
-            let fallbackLucide = 'cpu';
-            if (t.includes('SQL') || t.includes('DB') || t.includes('WAREHOUSE')) fallbackLucide = 'database';
-            if (t.includes('AI') || t.includes('ML') || t.includes('MODEL')) fallbackLucide = 'brain';
-            if (t.includes('CLOUD') || t.includes('AWS') || t.includes('AZURE')) fallbackLucide = 'cloud';
-            if (t.includes('BI') || t.includes('CHART')) fallbackLucide = 'bar-chart-2';
-            
-            return `<div class="w-6 h-6 flex items-center justify-center"><i data-lucide="${fallbackLucide}" class="w-5 h-5 text-indigo-500"></i></div>`;
-        }
-
-        window.toggleMobileMenu = function() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            menuOpen = !menuOpen;
-            if(menuOpen) {
-                menu.classList.remove('translate-x-full');
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                menu.classList.add('translate-x-full');
-                icon.setAttribute('data-lucide', 'menu');
-            }
-            lucide.createIcons();
-        }
-
-        window.navigate = function(pageId) {
-            document.querySelectorAll('.page-section').forEach(p => p.classList.add('hidden'));
-            const targetPage = document.getElementById(pageId + '-page');
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                targetPage.style.animation = 'none';
-                targetPage.offsetHeight; 
-                targetPage.style.animation = null; 
-            }
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if(link.getAttribute('data-target') === pageId) {
-                    link.classList.add('text-indigo-600', 'font-bold');
-                    link.classList.remove('text-slate-600');
-                } else {
-                    link.classList.remove('text-indigo-600', 'font-bold');
-                    link.classList.add('text-slate-600');
+    <!-- SCRIPT DE LÓGICA Y DATOS -->
+    <script>
+        // BASE DE DATOS DEL CURRICULUM (Integrando el contenido completo del usuario)
+        const semanasData = [
+            {
+                id: 1,
+                titulo: "Reyes y Sacerdotes",
+                subtitulo: "Nuestra Identidad en el Ejército de Dios",
+                icono: "fa-crown",
+                armadura: {
+                    pieza: "El Mayor Regalo de Identidad 🏰🌟",
+                    biblia: "«...y nos hizo reyes y sacerdotes para Dios...» (Apocalipsis 1:6 / 5:10)",
+                    explicacion: "¡Por tus venas corre sangre real! Cuando Jesús te salvó, te dio los 2 títulos más importantes:<br><br><b>1. ¡Nos hizo REYES! 👑🦁</b><br><i>Gobernar sobre el mal:</i> Tú tienes autoridad. Tú mandas sobre tu enojo, sobre tu flojera y las ganas de portarte mal. ¡El pecado no te gobierna, tú eres el rey!<br><br><b>2. ¡Nos hizo SACERDOTES! 🧎‍♂️✨</b><br><i>Ser el puente hacia Dios:</i> Puedes hablar con Dios cuando quieras (orar), orar por tus amigos y bendecir a tus papás."
+                },
+                mandamientos: {
+                    titulo: "Fundamento: Dios es el Único Rey",
+                    lista: [
+                        { emoji: "❤️☝️", titulo: "1. Amarás a Dios sobre todas las cosas", texto: "Dios es nuestro mejor amigo y el más importante de todos. ¡Ponlo siempre en primer lugar!" },
+                        { emoji: "🚫🗿", titulo: "2. Cero estatuas o juguetes de adoración", texto: "No adores a superhéroes ni a cosas hechas por hombres; solo a Dios." }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Para ser un soldado, primero hay que ser del Reino. Haremos un resumen de cómo el arrepentimiento sincero nos limpia y nos da esta nueva identidad.",
+                    actuacion: "<b>Ceremonia de Coronación Oficial:</b> Cada niño pasará al frente, renunciará en voz alta a las 'cosas malas' y se le colocará su corona, declarándolo formalmente 'Soldado del Rey'."
+                },
+                manualidad: {
+                    titulo: "Corona de Salvación",
+                    materiales: "Plantillas de coronas en cartulina, tijeras, crayones, lentejuelas/stickers brillantes, grapadora.",
+                    pasos: "1. Pintar y colorear la plantilla.\n2. Recortar por los bordes.\n3. Pegar las 'joyas'.\n4. Ajustar y grapar a la medida de la cabeza."
                 }
-            });
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // This safely closes the menu when navigating
-            if(menuOpen) toggleMobileMenu();
-        };
-
-        async function fetchData() {
-            try {
-                const res = await fetch('./data.json');
-                if (!res.ok) throw new Error();
-                return await res.json();
-            } catch (e) {
-                console.error("Failed to load data.json", e);
-                return null;
-            }
-        }
-
-        function renderProfile(profile) {
-            document.getElementById('about-location').innerText = profile.location;
-            document.getElementById('about-degree').innerText = profile.degree;
-            document.getElementById('about-role').innerText = profile.role_short;
-            
-            if(profile.email) document.getElementById('contact-email').setAttribute('href', `mailto:${profile.email}`);
-            if(profile.socials.linkedin) document.getElementById('contact-linkedin').setAttribute('href', profile.socials.linkedin);
-
-            const footSoc = document.getElementById('footer-socials');
-            footSoc.innerHTML = '';
-            const iconsMap = { linkedin: 'linkedin', github: 'github', twitter: 'twitter' };
-            Object.entries(profile.socials).forEach(([key, url]) => {
-                footSoc.innerHTML += `<a href="${url}" target="_blank" class="text-slate-400 hover:text-indigo-600 transition" aria-label="${key}"><i data-lucide="${iconsMap[key] || 'link'}" class="w-5 h-5"></i></a>`;
-            });
-        }
-
-        window.filterProjects = function(category) {
-            activeCategory = category;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if(btn.innerText === category) {
-                    btn.classList.replace('bg-white', 'bg-indigo-600');
-                    btn.classList.replace('text-slate-600', 'text-white');
-                    btn.classList.replace('border-slate-200', 'border-indigo-600');
-                } else {
-                    btn.classList.replace('bg-indigo-600', 'bg-white');
-                    btn.classList.replace('text-white', 'text-slate-600');
-                    btn.classList.replace('border-indigo-600', 'border-slate-200');
+            },
+            {
+                id: 2,
+                titulo: "El Casco",
+                subtitulo: "El Yelmo de la Salvación",
+                icono: "fa-helmet-battle",
+                armadura: {
+                    pieza: "El Casco de la Salvación 🧠✨",
+                    biblia: "«Y tomad el yelmo de la salvación...» (Efesios 6:17a)",
+                    explicacion: "El casco protege tu cabeza (tus pensamientos). Tienes que recordar todos los días que eres un hijo de Dios y que Jesús te salvó. Si sabes que le perteneces a Él, los pensamientos feos o de miedo no pueden entrar en tu cabecita."
+                },
+                mandamientos: {
+                    titulo: "Defendiendo la Mente",
+                    lista: [
+                        { emoji: "🗣️✨", titulo: "3. No dirás el nombre de Dios en vano", texto: "Habla de Dios siempre con amor y respeto, usando palabras bonitas. Usa Su nombre con mucho amor, nunca para decir mentiras o jugar." },
+                        { emoji: "⛪🥳", titulo: "4. Santificarás las fiestas", texto: "Los domingos son días especiales (Un día para Dios) para dar gracias en familia y descansar felices." }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Resumir historias donde los personajes tuvieron que cuidar lo que pensaban y decían (ej. David adorando a Dios vs las burlas de Goliat). Enseñar que saber quiénes somos (salvos) nos defiende de los malos pensamientos.",
+                    actuacion: "<b>Juego de Dardos Verbales:</b> Los niños se ponen el casco. El maestro lanza 'dardos' (pelotas de papel) diciendo frases como 'no puedes' o 'eres malo'. Los niños bloquean con el casco gritando un mandamiento: '¡Yo honro a Dios!'"
+                },
+                manualidad: {
+                    titulo: "Casco de Soldado Romano",
+                    materiales: "Platos hondos de plástico/papel, cartulina plateada, papel crepé rojo, pegamento.",
+                    pasos: "1. Cortar los bordes del plato para que encaje en la cabeza.\n2. Crear una visera con cartulina.\n3. Pegar una gran cresta de papel crepé rojo arriba."
                 }
-            });
+            },
+            {
+                id: 3,
+                titulo: "La Coraza",
+                subtitulo: "La Coraza de Justicia",
+                icono: "fa-vest",
+                armadura: {
+                    pieza: "La Coraza de Justicia ❤️🔒",
+                    biblia: "«...y vestidos con la coraza de justicia.» (Efesios 6:14b)",
+                    explicacion: "La coraza protege el corazón. Proteges tu corazón haciendo lo que es bueno y correcto ante los ojos de Dios. Cuando obedeces a tus papás y eres buen amigo, ¡tu coraza brilla!"
+                },
+                mandamientos: {
+                    titulo: "Defendiendo el Corazón (La Obediencia)",
+                    lista: [
+                        { emoji: "👨‍👩‍👧‍👦💖", titulo: "5. Honrarás a tu padre y a tu madre", texto: "Obedece, cuida y llena de amor a tus papás, porque ellos te aman más que a nada. ¡Dios promete que te irá súper bien si lo haces!" }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Resumen de historias de obediencia a los padres o a Dios (Ej. Jesús siendo obediente a María y José, o José perdonando a sus hermanos). La obediencia hace brillar la coraza.",
+                    actuacion: "<b>Prueba de la Coraza:</b> Un grupo ataca lanzando 'dardos de desobediencia'. El otro grupo, con la coraza puesta, debe inflar el pecho para que el dardo rebote, gritando: '¡Yo honro a mis papás!'"
+                },
+                manualidad: {
+                    titulo: "Coraza Brillante",
+                    materiales: "Bolsas de papel grandes (supermercado) o cartón flexible, papel aluminio, plumones permanentes.",
+                    pasos: "1. Recortar cuello y brazos en la bolsa como chaleco.\n2. Forrar todo el frente con papel aluminio.\n3. Escribir una 'J' gigante de Justicia en el pecho."
+                }
+            },
+            {
+                id: 4,
+                titulo: "El Escudo",
+                subtitulo: "El Escudo de la Fe",
+                icono: "fa-shield",
+                armadura: {
+                    pieza: "El Escudo de la Fe 🛡️💥",
+                    biblia: "«Sobre todo, tomad el escudo de la fe, con que podáis apagar todos los dardos de fuego del maligno.» (Efesios 6:16)",
+                    explicacion: "El enemigo te va a lanzar 'flechas envenenadas' como el miedo, la duda o las ganas de pelear. Cuando confías en Dios y dices: '¡Yo sé que Dios me cuida!', activas un escudo gigante que apaga esas flechas."
+                },
+                mandamientos: {
+                    titulo: "Defendiendo a los demás y a nosotros",
+                    lista: [
+                        { emoji: "🕊️🌱", titulo: "6. No matarás (Cuida la vida)", texto: "No hagas daño a los demás, ni con las manos ni con las palabras. ¡No uses la violencia ni los golpes!" },
+                        { emoji: "🤝😇", titulo: "7. No cometerás actos impuros", texto: "Mantén tu corazón, tus pensamientos y tu cuerpo limpios y llenos de bondad. Cumple siempre tus promesas." }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Historias donde la fe detuvo la violencia o el miedo (Daniel y los leones, o Jesús calmando la tormenta). Cuando tengo fe, no necesito usar la violencia (Mandamiento 6).",
+                    actuacion: "<b>Batalla de Escudos:</b> Mitad de la clase con escudos (defendiéndose) y la otra mitad atacando con 'dardos de fuego' (bolas de papel rojo). Quien usa el escudo grita: '¡No haré daño a nadie!'"
+                },
+                manualidad: {
+                    titulo: "Escudo Protector Romano",
+                    materiales: "Cartón grueso rectangular, témperas (rojo/dorado), cinta adhesiva gruesa para el asa.",
+                    pasos: "1. Pintar el escudo.\n2. Escribir la palabra 'FE' en grande en el centro.\n3. Pegar un asa de cinta gruesa en la parte de atrás para meter el brazo."
+                }
+            },
+            {
+                id: 5,
+                titulo: "El Cinturón",
+                subtitulo: "El Cinturón de la Verdad",
+                icono: "fa-ribbon",
+                armadura: {
+                    pieza: "El Cinturón de la Verdad 🤫🤥",
+                    biblia: "«Estad, pues, firmes, ceñidos vuestros lomos con la verdad...» (Efesios 6:14a)",
+                    explicacion: "Los soldados se ponían el cinturón para que no se les cayera la ropa al correr. Para ti, el cinturón es decir SIEMPRE la verdad. Cuando eres honesto, el enemigo no tiene de dónde agarrarte."
+                },
+                mandamientos: {
+                    titulo: "Defendiendo la Honestidad",
+                    lista: [
+                        { emoji: "🚫🎒", titulo: "8. No robarás", texto: "Nunca tomes lo que no es tuyo. Si necesitas algo, ¡pídelo prestado o devuélvelo!" },
+                        { emoji: "🤫🤥", titulo: "9. No dirás mentiras ni falsos testimonios", texto: "Di siempre la verdad, no inventes chismes de tus amigos y sé un niño muy honesto." }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Resumir qué pasa cuando se miente o se roba (La caída, la pérdida de confianza) vs decir la verdad. Sin la verdad, toda la armadura se cae.",
+                    actuacion: "<b>Carrera de la Verdad:</b> Correr con las piezas de armadura. Quien tiene el cinturón bien puesto avanza rápido. Alguien del equipo contrario intenta 'tentarlos' a mentir; si caen, deben detenerse a reajustar su cinturón."
+                },
+                manualidad: {
+                    titulo: "Cinturón Inquebrantable",
+                    materiales: "Tiras largas de foami (goma eva) o tela gruesa, velcro o clips, cartulina para la hebilla.",
+                    pasos: "1. Medir el foami a la cintura del niño.\n2. Recortar una gran hebilla cuadrada en cartulina.\n3. Escribir en la hebilla: 'LA VERDAD'."
+                }
+            },
+            {
+                id: 6,
+                titulo: "La Espada",
+                subtitulo: "La Espada del Espíritu",
+                icono: "fa-khanda",
+                armadura: {
+                    pieza: "La Espada del Espíritu ⚡📕",
+                    biblia: "«...y la espada del Espíritu, que es la palabra de Dios.» (Efesios 6:17b)",
+                    explicacion: "¡Esta es la ÚNICA arma de ataque! Tu espada es la Biblia. Cuando memorizas un versículo y lo dices en voz alta, ¡estás usando tu espada y el enemigo sale corriendo!"
+                },
+                mandamientos: {
+                    titulo: "Cortando los Malos Deseos",
+                    lista: [
+                        { emoji: "🧠✨", titulo: "9 (Complemento). No consentirás malos deseos", texto: "Llena tu cabecita de ideas buenas, amables y alegres sobre los demás." },
+                        { emoji: "🧸🎁", titulo: "10. No codiciarás los bienes ajenos", texto: "No sientas envidia (No tengas envidia) por lo que tienen otros niños. ¡Sé feliz y agradecido con tus propios juguetes!" }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Repaso de Jesús en el desierto, usando la Palabra ('Escrito está') para defenderse. La Palabra corta de raíz la envidia y la codicia.",
+                    actuacion: "<b>Corte de Obstáculos:</b> Colgar tiras de papel crepé con palabras como 'Envidia', 'Miedo', 'Codicia'. Los niños deben avanzar cortando el papel con sus espadas mientras gritan: '¡Soy feliz con lo que tengo!'"
+                },
+                manualidad: {
+                    titulo: "Espada de Dos Filos",
+                    materiales: "Cartón grueso, papel aluminio para la hoja, cinta aislante negra para el mango.",
+                    pasos: "1. Recortar la forma de espada.\n2. Forrar la hoja con aluminio para que brille.\n3. Envolver el mango con cinta negra para un buen agarre."
+                }
+            },
+            {
+                id: 7,
+                titulo: "El Calzado",
+                subtitulo: "El Calzado de la Paz",
+                icono: "fa-shoe-prints",
+                armadura: {
+                    pieza: "Los Tenis de la Paz 🏃‍♂️💨",
+                    biblia: "«...y calzados los pies con el apresto del evangelio de la paz.» (Efesios 6:15)",
+                    explicacion: "Un soldado necesita buenos zapatos para no resbalar. Tus 'tenis espirituales' sirven para correr a llevar paz. En lugar de armar pleitos, tú llevas amistad y el amor de Jesús."
+                },
+                mandamientos: {
+                    titulo: "🔑 EL GRAN RESUMEN DE JESÚS",
+                    lista: [
+                        { emoji: "❤️☝️", titulo: "El Primer y Grande Mandamiento", texto: "«Amarás al Señor tu Dios con todo tu corazón...» (Mat. 22:37). Dios debe ser tu superhéroe favorito. Al amarlo así, cumples los primeros 4 mandamientos." },
+                        { emoji: "🤝😊", titulo: "El Segundo Mandamiento", texto: "«Amarás a tu prójimo como a ti mismo.» (Mat. 22:39). Si tratas bien a tus papás, amigos y a todos, automáticamente cumples los otros 6 mandamientos." }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Explicar que los 10 mandamientos son las piezas del rompecabezas, pero los 2 de Jesús son la FOTO COMPLETA. ¡Si tienes amor, cumples todas las reglas y llevas la paz a donde camines!",
+                    actuacion: "<b>Pista de la Paz (No resbalar):</b> Caminar sobre una línea de cinta en el piso llevando un mensaje ('Dios te ama') a un compañero al otro lado, demostrando que el calzado nos da firmeza para no pelear."
+                },
+                manualidad: {
+                    titulo: "Sandalias / Calzado Romano",
+                    materiales: "Cartón para la suela, perforadora, lana gruesa o agujetas largas.",
+                    pasos: "1. Dibujar el pie del niño en cartón y recortar.\n2. Hacer agujeros a los lados.\n3. Pasar la lana para atarlo alrededor del tobillo sobre su zapato real."
+                }
+            },
+            {
+                id: 8,
+                titulo: "El Soldado Completo",
+                subtitulo: "Repaso General y El Botón de Encendido",
+                icono: "fa-user-shield",
+                armadura: {
+                    pieza: "¡El Llamado al Entrenamiento! 🦾⚡",
+                    biblia: "«Vestíos de TODA la armadura de Dios, para que podáis estar firmes...» (Efesios 6:11)",
+                    explicacion: "¡Dios te invitó a ponerte un traje de superhéroe invisible! No peleamos con puños, protegemos la mente y el corazón. Además, tenemos el secreto:<br><br><b>🔋 EL BOTÓN DE ENCENDIDO:</b><br><i>«Orando en todo tiempo...» (Efesios 6:18).</i> ¡Todo el traje se activa cuando oramos!"
+                },
+                mandamientos: {
+                    titulo: "Las Reglas del Reino Dominadas",
+                    lista: [
+                        { emoji: "🌍🏆", titulo: "Reinaremos en la Tierra", texto: "Dios no quiere que tengas miedo. Quiere que brilles con tu armadura puesta, amando a Dios y al prójimo, llenando tu escuela y casa de alegría." }
+                    ]
+                },
+                historia_actuacion: {
+                    repaso: "Repaso relámpago: ¿Para qué sirve el casco? (Salvar la mente/No decir mentiras de Dios). ¿El escudo? (Frenar peleas). ¿La espada? (La Biblia), etc.",
+                    actuacion: "<b>🛡️ GRAN BATALLA FINAL:</b> Todos los niños completamente equipados con todo lo creado en las 7 semanas. Medio salón lanza dardos, el otro se defiende usando LA PALABRA (Espada y mandamientos). Se gradúan como Soldados."
+                },
+                manualidad: {
+                    titulo: "Ensamblaje Total y Graduación",
+                    materiales: "Todas las manualidades de las semanas anteriores, cinta adhesiva (para reparaciones), Certificados impresos.",
+                    pasos: "1. Ayudar a los niños a vestirse con TODAS sus piezas de armadura.\n2. Repasar qué significa cada pieza.\n3. Entrega de Certificados del 'Soldado del Rey'."
+                }
+            }
+        ];
 
-            const grid = document.getElementById('projects-grid');
-            grid.innerHTML = '';
-            
-            // Revert "All" logic mapped to internal translation
-            const filtered = activeCategory === 'All' 
-                ? globalData.projects 
-                : globalData.projects.filter(p => p.category === activeCategory);
+        // INICIALIZACIÓN DEL DOM
+        document.addEventListener("DOMContentLoaded", () => {
+            const navSemanas = document.getElementById("nav-semanas");
+            const contentSemanas = document.getElementById("content-semanas");
 
-            filtered.forEach(p => {
-                const iconsHtml = p.stack.map(s => {
-                    const iconMarkup = getTechIcon(s);
-                    return `
-                        <div class="relative group cursor-pointer z-10">
-                            <div class="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center shadow-sm p-1.5 transition hover:border-indigo-400">
-                                ${iconMarkup}
+            semanasData.forEach((semana, index) => {
+                // Generar Botón Sidebar
+                const btn = document.createElement("button");
+                btn.className = `nav-btn w-full text-left px-4 py-3 rounded-xl text-slate-600 hover:bg-blue-50 hover:text-primary transition-all flex items-center gap-4 border border-transparent mb-1`;
+                btn.onclick = () => showContent(`semana-${semana.id}`);
+                btn.innerHTML = `
+                    <div class="bg-slate-100 text-slate-500 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 icon-bg transition-colors">
+                        <i class="fa-solid ${semana.icono} text-lg"></i>
+                    </div>
+                    <div class="overflow-hidden">
+                        <span class="block text-[10px] font-black uppercase text-slate-400 tracking-wider">Semana ${semana.id}</span>
+                        <span class="block font-bold text-sm leading-tight truncate">${semana.titulo}</span>
+                    </div>
+                `;
+                navSemanas.appendChild(btn);
+
+                // Generar Contenedor de Contenido (Oculto por defecto)
+                const contentDiv = document.createElement("div");
+                contentDiv.id = `content-semana-${semana.id}`;
+                contentDiv.className = "content-section fade-in w-full max-w-7xl mx-auto hidden";
+                
+                // Mapear Mandamientos
+                const mandamientosHTML = semana.mandamientos.lista.map(m => `
+                    <div class="bg-white p-4 rounded-xl border border-blue-100 shadow-sm flex gap-4">
+                        <div class="text-3xl shrink-0">${m.emoji}</div>
+                        <div>
+                            <h5 class="font-bold text-primary mb-1">${m.titulo}</h5>
+                            <p class="text-sm text-slate-600 leading-relaxed">${m.texto}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                contentDiv.innerHTML = `
+                    <!-- CABECERA DE LA SEMANA -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 relative overflow-hidden mb-8">
+                        <div class="absolute -right-10 -top-10 w-48 h-48 bg-blue-50 rounded-full opacity-50 z-0"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 bg-accent/20 text-accent font-bold rounded-full text-sm mb-3">
+                                    <i class="fa-solid fa-calendar-week"></i> Semana ${semana.id}
+                                </span>
+                                <h2 class="font-heading text-3xl md:text-5xl font-black text-slate-800 mb-2">${semana.titulo}</h2>
+                                <h3 class="text-xl text-primary font-bold">${semana.subtitulo}</h3>
                             </div>
-                            <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap z-20 shadow-lg">${s}</span>
-                        </div>
-                    `;
-                }).join('');
-
-                grid.innerHTML += `
-                    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                        <div class="h-44 bg-slate-100 border-b border-slate-100 relative overflow-hidden group">
-                            <img src="${p.thumbnail}" alt="${p.title}" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80';">
-                        </div>
-                        <div class="p-5 space-y-4 flex-1 flex flex-col">
-                            <div class="flex flex-wrap gap-2">${iconsHtml}</div>
-                            <h3 class="text-lg font-bold text-slate-900 leading-tight">${p.title}</h3>
-                            <p class="text-xs font-normal text-slate-600 leading-relaxed flex-1">${p.short_desc}</p>
-                            
-                            <div class="pt-4 border-t border-slate-50 mt-auto relative z-0">
-                                <button onclick="openModal('${p.id}')" class="w-full py-2 bg-indigo-50 text-indigo-700 rounded-xl font-bold text-sm hover:bg-indigo-100 transition focus:outline-none flex justify-center items-center">
-                                    View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5"></i>
-                                </button>
+                            <div class="bg-primary text-white w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 shadow-lg rotate-3">
+                                <i class="fa-solid ${semana.icono} text-4xl text-accent"></i>
                             </div>
                         </div>
                     </div>
-                `;
-            });
-            lucide.createIcons();
-        };
 
-        function renderSkills(skillsObj) {
-            const container = document.getElementById('skills-container');
-            container.innerHTML = '';
+                    <!-- CONTENIDO DE 2 COLUMNAS FULL WIDTH -->
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 w-full">
+                        
+                        <!-- COLUMNA IZQUIERDA: Armadura y Mandamientos -->
+                        <div class="space-y-8">
+                            <!-- Pieza de Armadura -->
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-accent">
+                                <h4 class="font-heading text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-shield text-accent"></i> ${semana.armadura.pieza}
+                                </h4>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 mb-4 font-serif italic text-slate-700 text-sm">
+                                    ${semana.armadura.biblia}
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed">${semana.armadura.explicacion}</p>
+                            </div>
 
-            Object.entries(skillsObj).forEach(([catName, skillsList]) => {
-                let html = `
-                    <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
-                        <h3 class="text-xl font-black text-slate-900 mb-6">${catName}</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                `;
-                
-                skillsList.forEach(s => {
-                    const iconMarkup = getTechIcon(s.name);
-
-                    html += `
-                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl hover:bg-white hover:border-slate-200 hover:shadow-sm transition">
-                            <h4 class="font-bold text-slate-900 flex items-center text-sm mb-2 gap-2">
-                                ${iconMarkup} ${s.name}
-                            </h4>
-                            <p class="text-xs text-slate-500 leading-relaxed font-normal">${s.desc}</p>
+                            <!-- Los Mandamientos (Defensa) -->
+                            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                                <h4 class="font-heading text-lg font-black text-primary uppercase tracking-wide mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-tablets text-xl"></i> ${semana.mandamientos.titulo}
+                                </h4>
+                                <div class="space-y-4">
+                                    ${mandamientosHTML}
+                                </div>
+                            </div>
                         </div>
-                    `;
-                });
 
-                html += `</div></div>`;
-                container.innerHTML += html;
+                        <!-- COLUMNA DERECHA: Clase práctica -->
+                        <div class="space-y-8">
+                            <!-- Desarrollo y Actuación -->
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-secondary">
+                                <h4 class="font-heading text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-comments text-secondary"></i> Repaso e Historia
+                                </h4>
+                                <p class="text-slate-600 text-sm mb-6">${semana.historia_actuacion.repaso}</p>
+                                
+                                <h4 class="font-heading text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-person-running text-accent"></i> ¡Viviremos la Historia!
+                                </h4>
+                                <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200 text-slate-700 text-sm leading-relaxed">
+                                    ${semana.historia_actuacion.actuacion}
+                                </div>
+                            </div>
+
+                            <!-- Manualidad -->
+                            <div class="bg-slate-800 text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
+                                <div class="absolute right-0 bottom-0 text-white/5 text-8xl"><i class="fa-solid fa-scissors"></i></div>
+                                <div class="relative z-10">
+                                    <h4 class="font-heading text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                                        <i class="fa-solid fa-hammer"></i> Manualidad: ${semana.manualidad.titulo}
+                                    </h4>
+                                    
+                                    <div class="mb-4">
+                                        <span class="text-[11px] font-black uppercase text-slate-400 tracking-widest block mb-1">Materiales</span>
+                                        <p class="text-sm text-slate-300 flex gap-2 items-start"><i class="fa-solid fa-box text-accent mt-1"></i> ${semana.manualidad.materiales}</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <span class="text-[11px] font-black uppercase text-slate-400 tracking-widest block mb-1">Pasos a seguir</span>
+                                        <p class="text-sm text-slate-200 whitespace-pre-line border-l-2 border-accent pl-3">${semana.manualidad.pasos}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                `;
+                contentSemanas.appendChild(contentDiv);
             });
-        }
-
-        window.openModal = function(projectId) {
-            const p = globalData.projects.find(x => x.id === projectId);
-            if(!p) return;
-            currentModalProject = p;
-            carouselPos = 0;
-
-            document.getElementById('modal-title').innerHTML = p.title;
-            document.getElementById('modal-desc').innerText = p.full_desc;
-            
-            const track = document.getElementById('modal-carousel-track');
-            if (p.images && p.images.length > 0 && p.images[0] !== "") {
-                track.innerHTML = p.images.map(img => `<img src="${img}" class="min-w-full h-[200px] md:h-[350px] object-cover border-r border-slate-100 last:border-0" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">`).join('');
-            } else {
-                track.innerHTML = `<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="min-w-full h-[200px] md:h-[350px] object-cover">`;
-            }
-            track.style.transform = `translateX(0%)`;
-
-            const kpisCont = document.getElementById('modal-kpis');
-            kpisCont.innerHTML = Object.entries(p.metrics).map(([k, v]) => `
-                <div class="bg-white p-3 rounded-xl border border-slate-100 flex justify-between items-center shadow-sm">
-                    <span class="text-[10px] font-bold uppercase text-slate-500 tracking-wider">${k}</span>
-                    <span class="text-lg font-black text-indigo-600">${v}</span>
-                </div>
-            `).join('');
-
-            let modalLinksHtml = '';
-            if (p.links.github && p.links.github !== "") {
-                modalLinksHtml += `<a href="${p.links.github}" target="_blank" class="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-semibold flex items-center hover:bg-slate-800 transition shadow-sm"><i data-lucide="github" class="w-4 h-4 mr-2"></i> Repository</a>`;
-            }
-            if (p.links.youtube && p.links.youtube !== "") {
-                modalLinksHtml += `<a href="${p.links.youtube}" target="_blank" class="px-5 py-2.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded-xl text-sm font-semibold flex items-center hover:bg-indigo-100 transition"><i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo</a>`;
-            }
-            document.getElementById('modal-links').innerHTML = modalLinksHtml;
-
-            lucide.createIcons();
-            const modal = document.getElementById('project-modal');
-            const content = document.getElementById('modal-content');
-            modal.classList.remove('hidden');
-            requestAnimationFrame(() => {
-                modal.classList.remove('opacity-0');
-                content.classList.remove('scale-95');
-                content.classList.add('scale-100');
-            });
-            document.body.style.overflow = 'hidden';
-        };
-
-        window.closeModal = function() {
-            const modal = document.getElementById('project-modal');
-            const content = document.getElementById('modal-content');
-            modal.classList.add('opacity-0');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        };
-
-        window.moveModalCarousel = function(dir) {
-            if(!currentModalProject || !currentModalProject.images || currentModalProject.images.length === 0 || currentModalProject.images[0] === "") return;
-            const total = currentModalProject.images.length;
-            carouselPos = (carouselPos + dir + total) % total;
-            document.getElementById('modal-carousel-track').style.transform = `translateX(-${carouselPos * 100}%)`;
-        };
-
-        document.getElementById('project-modal').addEventListener('click', (e) => {
-            if(e.target.id === 'project-modal') closeModal();
         });
 
-        async function startApp() {
-            const data = await fetchData();
-            if(!data) return;
-            globalData = data;
-            
-            renderProfile(data.profile);
-
-            const filtersCont = document.getElementById('project-filters');
-            const categories = ['All', ...new Set(data.projects.map(p => p.category))];
-            categories.forEach(cat => {
-                const baseClass = "filter-btn px-4 py-1.5 rounded-full border border-slate-200 text-xs font-bold transition cursor-pointer shadow-sm";
-                const unselectedClass = "bg-white text-slate-600 hover:border-indigo-300";
-                filtersCont.innerHTML += `<button onclick="filterProjects('${cat}')" class="${baseClass} ${unselectedClass}">${cat}</button>`;
+        // FUNCIÓN PARA CAMBIAR ENTRE PESTAÑAS
+        function showContent(id) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.content-section').forEach(el => {
+                el.classList.add('hidden');
             });
 
-            window.filterProjects('All');
-            renderSkills(data.skills);
-            
-            lucide.createIcons();
-            navigate('home');
-        }
+            // Mostrar el contenido seleccionado
+            const selectedContent = document.getElementById(id === 'rutina' ? 'content-rutina' : `content-${id}`);
+            if(selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
 
-        window.onload = startApp;
+            // Actualizar estilos del Sidebar
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = "nav-btn w-full text-left px-4 py-3 rounded-xl text-slate-600 hover:bg-blue-50 hover:text-primary transition-all flex items-center gap-4 border border-transparent mb-1";
+                const iconBg = btn.querySelector('.icon-bg');
+                if(iconBg) { iconBg.className = "bg-slate-100 text-slate-500 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 icon-bg transition-colors"; }
+            });
+
+            // Activar botón seleccionado
+            let activeBtn;
+            if(id === 'rutina') {
+                activeBtn = document.getElementById('btn-rutina');
+                activeBtn.className = "nav-btn w-full text-left px-4 py-3 rounded-xl font-bold text-primary bg-blue-50 border border-blue-200 transition-all flex items-center gap-4 shadow-sm mb-6";
+            } else {
+                const index = parseInt(id.split('-')[1]) - 1;
+                activeBtn = document.getElementById('nav-semanas').children[index];
+                activeBtn.className = "nav-btn w-full text-left px-4 py-3 rounded-xl font-bold text-primary bg-blue-50 border border-blue-200 transition-all flex items-center gap-4 shadow-sm mb-1";
+                const iconBg = activeBtn.querySelector('.icon-bg');
+                if(iconBg) { iconBg.className = "bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center shrink-0 icon-bg shadow-md transition-colors"; }
+            }
+            
+            // Auto scroll top (Suave)
+            const mainContent = document.getElementById('main-content');
+            mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
