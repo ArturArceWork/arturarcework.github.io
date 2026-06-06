@@ -3,638 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sustentación de Tesis - UCV</title>
+    <title>Presentación Final - Modelado Predictivo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ucvBlue: '#082e5d',
+                        ucvRed: '#ff000b'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;600;700;800&display=swap');
-
-        body { font-family: 'Open Sans', sans-serif; }
-        h1, h2, h3, h4, .serif { font-family: 'Merriweather', serif; }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #082e5d;
+            overflow: hidden;
+        }
         .slide {
             display: none;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
         }
         .slide.active {
             display: flex;
             opacity: 1;
         }
-        
-        /* Colores institucionales UCV y paleta ejecutiva */
-        .text-ucv-blue { color: #002D62; } /* Azul marino oscuro */
-        .bg-ucv-blue { background-color: #002D62; }
-        .text-ucv-red { color: #C8102E; } /* Rojo carmesí */
-        .bg-ucv-red { background-color: #C8102E; }
-        .border-ucv-red { border-color: #C8102E; }
-        .border-ucv-blue { border-color: #002D62; }
-        
-        .shadow-executive { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .img-container {
+            background-color: #f3f4f6;
+            border: 2px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            background-color: white;
+        }
     </style>
 </head>
-<body class="bg-gray-100 h-screen w-screen overflow-hidden m-0 p-0 text-gray-800">
+<body class="h-screen w-screen flex flex-col relative">
 
-    <!-- CONTENEDOR PRINCIPAL PANTALLA COMPLETA -->
-    <div class="relative w-full h-full bg-white flex flex-col">
+    <!-- Progress Bar -->
+    <div class="absolute top-0 left-0 h-1 bg-ucvRed transition-all duration-300 z-50" id="progressBar" style="width: 0%;"></div>
+
+    <!-- MAIN SLIDES CONTAINER -->
+    <main class="flex-grow relative w-full h-full">
+
+        <!-- SLIDE 1: PORTADA -->
+        <div class="slide active flex-col items-center justify-center h-full w-full text-center px-10">
+            <h1 class="text-5xl font-extrabold text-ucvBlue mb-4 leading-tight">
+                Modelado Predictivo y Clasificación Avanzada del <span class="text-ucvRed">Agotamiento Laboral</span>
+            </h1>
+            <h2 class="text-2xl text-gray-600 mb-8 font-light">
+                Aplicación de Machine Learning en el Sector Tecnológico
+            </h2>
+            <div class="w-24 h-1 bg-ucvRed mb-8 mx-auto"></div>
+            <p class="text-lg font-semibold text-ucvBlue">Universidad César Vallejo</p>
+            <p class="text-md text-gray-500 mb-8">Escuela Profesional de Ingeniería de Sistemas</p>
+        </div>
+
+        <!-- SLIDE 2: CONTEXTO Y PROBLEMA -->
+        <div class="slide flex-col justify-center h-full w-full px-20">
+            <h2 class="text-4xl font-bold text-ucvBlue mb-2 border-l-8 border-ucvRed pl-4">Realidad Problemática</h2>
+            <p class="text-xl text-gray-500 mb-10 pl-6">¿Por qué usar Machine Learning en Recursos Humanos?</p>
+            
+            <div class="grid grid-cols-2 gap-12 pl-6">
+                <div>
+                    <ul class="space-y-6 text-xl">
+                        <li class="flex items-start">
+                            <span class="text-ucvRed font-bold mr-3">✗</span>
+                            <span><strong>Gestión Reactiva:</strong> La industria espera a que el ingeniero renuncie, perdiendo talento clave.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-ucvRed font-bold mr-3">✓</span>
+                            <span><strong>La Solución (Predictiva):</strong> Procesamiento de 100,000 registros para construir sistemas de alerta temprana.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-ucvBlue mb-4">El Reto Analítico</h3>
+                    <p class="text-lg text-gray-700">Separación metodológica estricta para evitar errores estadísticos:</p>
+                    <ul class="mt-4 space-y-4 text-gray-600 text-lg">
+                        <li class="flex items-center"><span class="bg-ucvBlue text-white rounded-full w-6 h-6 inline-flex items-center justify-center mr-3 text-sm">1</span> <strong>Regresión:</strong> Estima la cantidad continua de cansancio (MSE).</li>
+                        <li class="flex items-center"><span class="bg-ucvBlue text-white rounded-full w-6 h-6 inline-flex items-center justify-center mr-3 text-sm">2</span> <strong>Clasificación:</strong> Dictamina la decisión binaria de renuncia (ROC AUC).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: EDA -->
+        <div class="slide flex-col justify-center h-full w-full px-20">
+            <h2 class="text-4xl font-bold text-ucvBlue mb-2 border-l-8 border-ucvRed pl-4">Análisis Exploratorio (EDA)</h2>
+            <p class="text-xl text-gray-500 mb-8 pl-6">Interacción visual y complejidad de los datos</p>
+            
+            <div class="grid grid-cols-2 gap-8 h-3/5">
+                <div class="flex flex-col justify-center pl-6">
+                    <h3 class="text-2xl font-bold mb-4 text-ucvBlue">Comportamiento Multifactorial</h3>
+                    <ul class="space-y-4 text-lg text-gray-700">
+                        <li>• El problema de la deserción no responde a un solo factor lineal.</li>
+                        <li>• Existe una interacción cruzada entre el <span class="font-bold text-ucvBlue">Nivel de Estrés</span> y las <span class="font-bold text-ucvRed">Horas de Trabajo</span>.</li>
+                        <li>• Este comportamiento entrelazado y ruidoso justifica matemáticamente el uso de algoritmos complejos de Machine Learning frente a fórmulas tradicionales.</li>
+                    </ul>
+                </div>
+                <div class="img-container h-full relative">
+                    <img src="img/01_dispersion_estres_horas.png" alt="Gráfico EDA" onerror="this.outerHTML='<div class=\'text-gray-400 text-center p-4\'>[Imagen no encontrada]<br>Coloca <b>01_dispersion_estres_horas.png</b> en la carpeta <b>img/</b></div>'">
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: LIGA DE REGRESIÓN -->
+        <div class="slide flex-col justify-center h-full w-full px-20">
+            <h2 class="text-4xl font-bold text-ucvBlue mb-2 border-l-8 border-ucvRed pl-4">Liga de Regresión (Predictiva)</h2>
+            <p class="text-xl text-gray-500 mb-8 pl-6">Predicción Continua del Nivel de Burnout (Métrica: MSE)</p>
+            
+            <div class="grid grid-cols-2 gap-8 h-3/5">
+                <div class="img-container h-full">
+                    <img src="img/02_comparativa_mse_regresion.png" alt="Comparativa MSE" onerror="this.outerHTML='<div class=\'text-gray-400 text-center p-4\'>[Imagen no encontrada]<br>Coloca <b>02_comparativa_mse_regresion.png</b> en la carpeta <b>img/</b></div>'">
+                </div>
+                <div class="flex flex-col justify-center pr-6">
+                    <h3 class="text-2xl font-bold mb-4 text-ucvBlue">El modelo clásico prevalece</h3>
+                    <ul class="space-y-4 text-lg text-gray-700">
+                        <li>• <strong>Métrica:</strong> A menor Error Cuadrático Medio, mejor modelo.</li>
+                        <li>• <strong>Resultados Reales:</strong> Regresión Lineal Clásica (MCO) y Ridge empatan con el error mínimo absoluto de <span class="font-bold text-ucvRed">1.6327</span>.</li>
+                        <li>• <strong>Hallazgo:</strong> Al no existir multicolinealidad destructiva en los datos, penalizaciones agresivas como Lasso (1.6389) introdujeron un sesgo artificial perjudicial.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: LIGA DE CLASIFICACIÓN -->
+        <div class="slide flex-col justify-center h-full w-full px-20">
+            <h2 class="text-4xl font-bold text-ucvBlue mb-2 border-l-8 border-ucvRed pl-4">Liga de Clasificación</h2>
+            <p class="text-xl text-gray-500 mb-8 pl-6">Detección Categórica de Renuncia (0 = Permanece, 1 = Renuncia)</p>
+            
+            <div class="grid grid-cols-2 gap-8 h-3/5">
+                <div class="flex flex-col justify-center pl-6">
+                    <h3 class="text-2xl font-bold mb-4 text-ucvBlue">Robustez ante datos humanos</h3>
+                    <ul class="space-y-4 text-lg text-gray-700">
+                        <li>• <strong>Métrica:</strong> Puntería ROC AUC (A mayor barra, mejor discriminación).</li>
+                        <li>• <strong>Los Ganadores:</strong> La <span class="font-bold text-ucvBlue">Regresión Logística (0.64)</span> y el <span class="font-bold text-ucvRed">Árbol Podado (0.63)</span>.</li>
+                        <li>• <strong>Hallazgo:</strong> Modelos ultra complejos como SVM (0.49) cayeron al nivel del azar por sobreajuste. Las fronteras más simples lograron generalizar mejor el caos humano.</li>
+                    </ul>
+                </div>
+                <div class="img-container h-full">
+                    <img src="img/04_comparativa_roc_auc.png" alt="Comparativa ROC AUC" onerror="this.outerHTML='<div class=\'text-gray-400 text-center p-4\'>[Imagen no encontrada]<br>Coloca <b>04_comparativa_roc_auc.png</b> en la carpeta <b>img/</b></div>'">
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: ESTRUCTURA DEL ÁRBOL -->
+        <div class="slide flex-col justify-center h-full w-full px-20">
+            <h2 class="text-4xl font-bold text-ucvBlue mb-2 border-l-8 border-ucvRed pl-4">Extracción de Reglas Lógicas</h2>
+            <p class="text-xl text-gray-500 mb-4 pl-6">Inspección de la "Caja Negra" del Árbol de Decisión</p>
+            
+            <div class="flex flex-col h-4/5 pb-4">
+                <div class="img-container flex-grow mb-4">
+                    <img src="img/03_estructura_arbol_completo.svg" alt="Árbol de Decisión" onerror="this.outerHTML='<div class=\'text-gray-400 text-center p-4\'>[Imagen no encontrada]<br>Coloca <b>03_estructura_arbol_completo.svg/b> en la carpeta <b>img/</b></div>'">
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-ucvBlue text-lg text-gray-800 text-center">
+                    El nodo raíz automatizó un corte en <span class="text-ucvRed font-bold">Estrés = 7.65</span>. En profundidad interactúa con jornadas de <span class="text-ucvRed font-bold">48.5 horas</span> para aislar nodos puros (Gini = 0.0) de renuncia segura.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CONCLUSIONES -->
+        <div class="slide flex-col justify-center h-full w-full px-20">
+            <h2 class="text-4xl font-bold text-ucvBlue mb-8 border-l-8 border-ucvRed pl-4">Conclusiones Finales</h2>
+            
+            <div class="grid grid-cols-2 gap-12 pl-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-ucvBlue mb-3 flex items-center">
+                        <span class="bg-ucvBlue text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                        Validación Científica
+                    </h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        En datos reales <strong>no siempre gana el algoritmo más complejo</strong>. La Regresión Lineal y la Logística demostraron ser mucho más estables y robustas que modelos pesados como Lasso o SVM.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-ucvBlue mb-3 flex items-center">
+                        <span class="bg-ucvBlue text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
+                        Reglas Tangibles de Negocio
+                    </h3>
+                    <p class="text-lg text-gray-700">
+                        Se descubrió matemáticamente que el riesgo organizacional se dispara al cruzar el umbral de <strong>7.65 en estrés</strong> combinado con <strong>48.5 horas laborales</strong>.
+                    </p>
+                </div>
+                <div class="bg-red-50 p-8 rounded-xl border border-red-100 shadow-sm flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-ucvRed mb-4">Impacto Tecnológico (Ing. de Sistemas)</h3>
+                    <p class="text-lg text-gray-800 mb-4">
+                        Este modelo se traduce en código y software:
+                    </p>
+                    <ul class="space-y-3 text-lg text-gray-700">
+                        <li class="flex items-center"><span class="text-ucvRed mr-2">✓</span> Despliegue del algoritmo en el ERP corporativo.</li>
+                        <li class="flex items-center"><span class="text-ucvRed mr-2">✓</span> Evaluación en tiempo real del capital técnico.</li>
+                        <li class="flex items-center"><span class="text-ucvRed mr-2">✓</span> Alertas automáticas para proactividad gerencial.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER & CONTROLS -->
+    <footer class="h-16 bg-white border-t border-gray-200 flex justify-between items-center px-8 z-50">
+        <div class="text-sm text-gray-500 font-semibold">
+            Ingeniería de Sistemas - Universidad César Vallejo
+        </div>
         
-        <!-- ================= 1. PORTADA ================= -->
-        <section class="slide active flex-col items-center justify-center h-full w-full p-16 relative bg-slate-50">
-            <div class="absolute top-12 left-16 flex items-center">
-                <img src="logo_ucv.png" alt="Logo UCV" class="h-16 object-contain" onerror="this.style.display='none'">
-                <div class="ml-4 border-l-2 border-gray-300 pl-4 h-12 flex flex-col justify-center">
-                    <span class="text-sm font-bold text-gray-500 uppercase tracking-widest">Facultad de Ingeniería y Arquitectura</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-widest">Escuela Profesional de Ingeniería de Sistemas</span>
-                </div>
+        <div class="flex items-center space-x-6">
+            <button id="prevBtn" class="text-ucvBlue hover:text-ucvRed transition font-bold px-4 py-2 disabled:opacity-30 disabled:cursor-not-allowed">
+                &#8592; Anterior
+            </button>
+            <div class="text-gray-400 font-medium bg-gray-100 px-4 py-1 rounded-full">
+                <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">7</span>
             </div>
-            
-            <div class="max-w-6xl mt-12 text-center">
-                <h1 class="text-5xl font-bold mb-8 leading-tight text-ucv-blue">Gestión del riesgo operativo y vulnerabilidad financiera en las microempresas comerciales del distrito de La Victoria, 2022</h1>
-                <div class="w-24 h-1 bg-ucv-red mx-auto mb-10"></div>
-                
-                <div class="grid grid-cols-2 gap-8 text-left max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-executive border border-gray-100">
-                    <div>
-                        <p class="text-sm text-gray-500 uppercase tracking-wider font-bold mb-2">Autores</p>
-                        <ul class="text-gray-800 font-medium space-y-1">
-                            <li>Ascanoa Navarrete, Jonathan Amarildo</li>
-                            <li>Arce Choquecahua, Artur Alberth</li>
-                            <li>Huillca Ballasco, Sebastian Raymundo</li>
-                            <li>Yaranga Briceño, Jafed David</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="mb-6">
-                            <p class="text-sm text-gray-500 uppercase tracking-wider font-bold mb-1">Asesor</p>
-                            <p class="text-gray-800 font-medium">Ing. Mg. Cardenas Palacios, Carlos Armando</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500 uppercase tracking-wider font-bold mb-1">Línea de Investigación</p>
-                            <p class="text-gray-800 font-medium">Sistemas de Información y Gestión de la Tecnología</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12 text-sm font-bold text-gray-500 uppercase tracking-widest">
-                    Lima, Perú — 2026
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 2. REALIDAD PROBLEMÁTICA ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-4xl font-bold text-ucv-blue">Realidad Problemática</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Introducción</span>
-            </div>
-            
-            <div class="flex h-full space-x-12">
-                <div class="w-1/2 flex flex-col space-y-6">
-                    <div class="border-l-4 border-ucv-blue pl-6 py-2">
-                        <h3 class="font-bold text-xl text-gray-800 mb-2">Contexto Global y Regional</h3>
-                        <p class="text-gray-600 leading-relaxed">Las MYPES constituyen el motor de la economía mundial, pero priorizan la rentabilidad inmediata sobre la seguridad (ISO 31000). A nivel de Latinoamérica, <strong>el 70% fracasa en los primeros 5 años</strong> debido a una administración empírica y reactiva ante crisis externas.</p>
-                    </div>
-                    
-                    <div class="border-l-4 border-ucv-red pl-6 py-2">
-                        <h3 class="font-bold text-xl text-gray-800 mb-2">El Problema en La Victoria</h3>
-                        <p class="text-gray-600 leading-relaxed mb-3">Distrito que funciona como un emporio comercial de alto flujo económico, pero que alberga una preocupante "bomba de tiempo operativa":</p>
-                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
-                            <li>Alta informalidad legal y administrativa.</li>
-                            <li>Rezago digital extremo en procesos de venta.</li>
-                            <li>Dependencia absoluta de la infraestructura física alquilada.</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-gray-50 p-6 border border-gray-200 text-gray-700 italic">
-                        "Existe una profunda paradoja empresarial: registran altos niveles de venta en la actualidad, pero un solo evento adverso (regulatorio o sanitario) puede quebrar sus flujos de caja mañana".
-                    </div>
-                </div>
-                
-                <div class="w-1/2 flex flex-col items-center justify-center bg-gray-50 p-4 border border-gray-200">
-                    <img src="foto_gamarra.png" alt="Comercio en La Victoria" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
-                    <p class="text-xs text-gray-400 mt-2 w-full text-right">Dinámica comercial en el distrito de La Victoria.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 3. MARCO TEÓRICO ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-4xl font-bold text-ucv-blue">Fundamentación Teórica y Antecedentes</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Marco Teórico</span>
-            </div>
-            
-            <div class="flex h-full space-x-10">
-                <div class="w-1/2 flex flex-col space-y-6">
-                    <div class="bg-slate-50 p-6 border-t-4 border-ucv-blue shadow-sm h-1/2">
-                        <h3 class="text-xl font-bold text-ucv-blue mb-3"><i class="fas fa-shield-alt mr-2 text-gray-400"></i> Gestión del Riesgo Operativo</h3>
-                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">Definido por la Norma <strong>ISO 31000</strong>: Proceso sistemático de identificación, análisis y tratamiento de la incertidumbre para proteger el valor del negocio.</p>
-                        <ul class="text-gray-600 text-sm space-y-2 border-l-2 border-gray-200 pl-4">
-                            <li><strong>Riesgo Normativo:</strong> Cumplimiento regulatorio y formalidad legal.</li>
-                            <li><strong>Riesgo Tecnológico:</strong> Disponibilidad de la información (ISO 27001).</li>
-                            <li><strong>Riesgo de Infraestructura:</strong> Resiliencia del espacio físico.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-slate-50 p-6 border-t-4 border-ucv-red shadow-sm h-1/2">
-                        <h3 class="text-xl font-bold text-ucv-red mb-3"><i class="fas fa-chart-line mr-2 text-gray-400"></i> Vulnerabilidad Financiera</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed">Según el <strong>Marco de Gestión del BID</strong>: Es la incapacidad de la estructura económica para absorber choques negativos sin entrar en insolvencia, evidenciado en la alta dependencia del flujo de caja diario.</p>
-                    </div>
-                </div>
-                
-                <div class="w-1/2 bg-gray-50 p-8 border border-gray-200 shadow-sm flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Antecedentes Científicos</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <p class="font-bold text-gray-800">Cardona y Castro (2025)</p>
-                            <p class="text-gray-600 text-sm">Las PYMES operan de forma empírica y reactiva, careciendo de control, lo que precipita su fracaso financiero.</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-800">Usulle (2022)</p>
-                            <p class="text-gray-600 text-sm">Demostró correlacionalmente que un incremento en las fallas operativas reduce significativamente la rentabilidad neta.</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-800">Hidalgo y Xiao (2022)</p>
-                            <p class="text-gray-600 text-sm">La falta de adaptación tecnológica y la informalidad legal (falta de RUC) son los principales predictores de mortalidad empresarial.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 4. OBJETIVOS ================= -->
-        <section class="slide flex-col items-center justify-center h-full w-full p-16 bg-slate-50">
-            <h2 class="text-4xl font-bold text-ucv-blue mb-12 text-center">Objetivos de la Investigación</h2>
-            
-            <div class="w-full max-w-5xl mx-auto flex flex-col items-center">
-                <div class="bg-white border-t-4 border-ucv-blue p-8 shadow-executive w-full text-center relative z-10 mb-8">
-                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Objetivo General</h3>
-                    <p class="text-2xl font-bold text-gray-800">Determinar la relación entre la gestión del riesgo operativo y la vulnerabilidad financiera en las microempresas comerciales del distrito de La Victoria, 2022.</p>
-                </div>
-                
-                <div class="grid grid-cols-3 gap-6 w-full">
-                    <div class="bg-white border border-gray-200 p-6 shadow-sm text-center">
-                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ucv-blue">
-                            <i class="fas fa-balance-scale text-xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2 text-sm uppercase">O.E. 1: Riesgo Normativo</h4>
-                        <p class="text-sm text-gray-600">Determinar la relación entre el riesgo normativo y la vulnerabilidad financiera.</p>
-                    </div>
-                    <div class="bg-white border border-gray-200 p-6 shadow-sm text-center">
-                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ucv-blue">
-                            <i class="fas fa-laptop-code text-xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2 text-sm uppercase">O.E. 2: Riesgo Tecnológico</h4>
-                        <p class="text-sm text-gray-600">Analizar la relación entre el riesgo tecnológico y la vulnerabilidad financiera.</p>
-                    </div>
-                    <div class="bg-white border border-gray-200 p-6 shadow-sm text-center">
-                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ucv-blue">
-                            <i class="fas fa-building text-xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2 text-sm uppercase">O.E. 3: Infraestructura</h4>
-                        <p class="text-sm text-gray-600">Evaluar la relación entre el riesgo de infraestructura y la vulnerabilidad financiera.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 5. METODOLOGÍA ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-4xl font-bold text-ucv-blue">Metodología de la Investigación</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Aspectos Metodológicos</span>
-            </div>
-            
-            <div class="flex h-full space-x-8">
-                <div class="w-1/3 bg-slate-50 border border-gray-200 p-8 flex flex-col justify-center items-center text-center shadow-sm">
-                    <i class="fas fa-database text-4xl text-gray-300 mb-4"></i>
-                    <p class="text-sm text-gray-500 uppercase tracking-widest font-bold mb-2">Población y Muestra Censal</p>
-                    <h3 class="text-5xl font-bold text-ucv-blue mb-2">53,624</h3>
-                    <p class="text-gray-600 text-sm">Microempresas comerciales empadronadas</p>
-                </div>
-                
-                <div class="w-2/3 grid grid-cols-2 gap-6">
-                    <div class="border-l-2 border-gray-300 pl-6 flex flex-col justify-center">
-                        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-1">Enfoque</p>
-                        <p class="text-xl font-bold text-gray-800">Cuantitativo</p>
-                    </div>
-                    <div class="border-l-2 border-gray-300 pl-6 flex flex-col justify-center">
-                        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-1">Tipo</p>
-                        <p class="text-xl font-bold text-gray-800">Aplicada</p>
-                    </div>
-                    <div class="col-span-2 border-l-2 border-gray-300 pl-6 py-4 bg-gray-50">
-                        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-1">Diseño</p>
-                        <p class="text-lg font-bold text-gray-800">No experimental, Transversal, Correlacional</p>
-                    </div>
-                    <div class="col-span-2 border-l-2 border-ucv-blue pl-6 py-4 bg-blue-50">
-                        <p class="text-xs text-ucv-blue font-bold uppercase tracking-widest mb-1">Técnica e Instrumento (Fuente Oficial)</p>
-                        <p class="text-gray-800">Análisis de datos secundarios - <strong>V Censo Nacional Económico (INEI, 2022)</strong>. Formulario CENEC.01.04.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 6. RESULTADOS DESCRIPTIVOS (V1) - PARTE 1 ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Resultados Descriptivos: Variable 1</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Normativo e Infraestructura</span>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-12 h-full">
-                <!-- Riesgo Normativo -->
-                <div class="flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">1. Riesgo Normativo (Tenencia de RUC)</h3>
-                    <p class="text-sm text-gray-600 mb-4">El 29.7% de establecimientos opera en la informalidad o desconoce su situación tributaria, evidenciando un alto riesgo regulatorio.</p>
-                    <div class="flex-grow border border-gray-200 bg-slate-50 p-4 flex items-center justify-center">
-                        <img src="grafico_ruc.png" alt="Gráfico RUC" class="max-h-full max-w-full object-contain">
-                    </div>
-                </div>
-
-                <!-- Riesgo Infraestructura -->
-                <div class="flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">2. Riesgo de Infraestructura</h3>
-                    <p class="text-sm text-gray-600 mb-4">El 63.7% desarrolla sus actividades en locales alquilados, generando alta dependencia y volatilidad en los costos fijos comerciales.</p>
-                    <div class="flex-grow border border-gray-200 bg-slate-50 p-4 flex items-center justify-center">
-                        <img src="grafico_local.png" alt="Gráfico Local" class="max-h-full max-w-full object-contain">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 7. RESULTADOS DESCRIPTIVOS (V1) - PARTE 2 ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Resultados Descriptivos: Variable 1</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Riesgo Tecnológico</span>
-            </div>
-            
-            <div class="flex flex-col h-full">
-                <div class="mb-6">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">3. Riesgo Tecnológico (Digitalización Comercial)</h3>
-                    <p class="text-gray-600 text-sm">Se evidencia un aislamiento digital casi absoluto en las unidades económicas analizadas, mermando su competitividad.</p>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-12 flex-grow">
-                    <!-- Pagina Web -->
-                    <div class="flex flex-col">
-                        <div class="flex-grow border border-gray-200 bg-slate-50 p-4 flex items-center justify-center mb-4">
-                            <img src="grafico_web.png" alt="Gráfico Web" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <div class="bg-red-50 border-l-4 border-ucv-red p-3">
-                            <p class="text-sm text-red-800 font-bold">94.3% NO cuenta con Página Web propia.</p>
-                        </div>
-                    </div>
-
-                    <!-- Facebook -->
-                    <div class="flex flex-col">
-                        <div class="flex-grow border border-gray-200 bg-slate-50 p-4 flex items-center justify-center mb-4">
-                            <img src="grafico_facebook.png" alt="Gráfico Facebook" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <div class="bg-red-50 border-l-4 border-ucv-red p-3">
-                            <p class="text-sm text-red-800 font-bold">88.6% NO utiliza Facebook comercialmente.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 8. RESULTADOS DESCRIPTIVOS (V2) ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-slate-50">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Resultados Descriptivos: Variable 2</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Vulnerabilidad Financiera</span>
-            </div>
-            
-            <div class="flex space-x-10 h-full items-center">
-                <div class="w-1/2 bg-white p-8 border border-gray-200 shadow-sm flex flex-col justify-center h-64">
-                    <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Ventas Netas Anuales</p>
-                    <div class="mb-4">
-                        <span class="text-gray-500 text-sm">Media:</span>
-                        <span class="text-3xl font-bold text-gray-800 block">S/ 511,618.34</span>
-                    </div>
-                    <div class="border-t pt-4">
-                        <span class="text-gray-500 text-sm">Máximo histórico en la muestra:</span>
-                        <span class="text-xl font-bold text-gray-800 block">> S/ 1,589 millones</span>
-                        <span class="text-xs text-gray-400">(Denota altísima concentración de capital en pocos actores)</span>
-                    </div>
-                </div>
-
-                <div class="w-1/2 bg-white p-8 border-l-4 border-ucv-red shadow-executive flex flex-col justify-center h-64">
-                    <p class="text-sm font-bold text-ucv-red uppercase tracking-widest mb-4">Margen Comercial (Alerta)</p>
-                    <div class="mb-4">
-                        <span class="text-gray-500 text-sm">Media:</span>
-                        <span class="text-3xl font-bold text-gray-800 block">S/ 112,408.34</span>
-                    </div>
-                    <div class="border-t pt-4 bg-red-50 p-3 mt-2">
-                        <span class="text-red-800 text-sm font-bold">Mínimo reportado (Pérdida Crítica):</span>
-                        <span class="text-2xl font-bold text-ucv-red block">-S/ 112,138,352.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 text-center text-gray-600 italic">
-                El análisis revela ingresos sustanciales por alto volumen en Gamarra, pero soportados sobre una base operativa que permite pérdidas millonarias, reflejando <strong>extrema fragilidad financiera</strong>.
-            </div>
-        </section>
-
-        <!-- ================= 9. PRUEBA DE NORMALIDAD ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Pruebas Preliminares</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Prueba de Normalidad</span>
-            </div>
-            
-            <div class="flex flex-col h-full">
-                <div class="mb-6 flex space-x-8">
-                    <div class="w-1/2">
-                        <p class="text-gray-700 leading-relaxed text-sm">Para determinar la prueba estadística pertinente, se aplicó la prueba de <strong>Kolmogorov-Smirnov</strong> dado que el tamaño poblacional evaluado supera ampliamente los 50 casos (N = 53,624).</p>
-                    </div>
-                    <div class="w-1/2 bg-gray-50 p-4 border-l-4 border-ucv-blue">
-                        <p class="text-sm text-gray-800 font-bold">Significancia Asintótica (p-valor) = 0.000</p>
-                        <p class="text-xs text-gray-600 mt-1">Como p < 0.05 en todas las variables, se rechaza la normalidad de los datos. Se justifica estadísticamente el uso de pruebas no paramétricas (<strong>Rho de Spearman</strong>).</p>
-                    </div>
-                </div>
-                
-                <div class="flex-grow flex items-center justify-center bg-slate-50 border border-gray-200 p-2 overflow-hidden">
-                    <img src="tabla_normalidad.png" alt="Tabla Normalidad SPSS" class="max-h-full max-w-full object-contain">
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 10. HIPÓTESIS GENERAL ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-slate-50">
-            <div class="border-b border-gray-300 pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Contraste de Hipótesis General</h2>
-                <span class="text-gray-500 font-bold tracking-widest text-sm uppercase">Rho de Spearman</span>
-            </div>
-            
-            <div class="flex flex-col h-full space-y-6">
-                <div class="bg-white p-6 border border-gray-200 shadow-sm text-center">
-                    <p class="text-gray-800 font-medium italic">"Existe relación significativa entre la gestión del riesgo operativo y la vulnerabilidad financiera en las microempresas comerciales del distrito de La Victoria, 2022."</p>
-                </div>
-                
-                <div class="flex-grow flex items-center justify-center bg-white border border-gray-200 p-4 overflow-hidden">
-                    <img src="tabla_correlacion_general.png" alt="Tabla Correlación General" class="max-h-full max-w-full object-contain">
-                </div>
-
-                <div class="flex justify-between items-center bg-white p-6 border border-gray-200 shadow-sm">
-                    <div>
-                        <span class="text-xs text-gray-400 font-bold uppercase block mb-1">Resultados Estadísticos</span>
-                        <span class="text-lg font-bold text-gray-800 mr-4">Rho = -0.040</span>
-                        <span class="text-lg font-bold text-ucv-blue">Sig. < 0.001</span>
-                    </div>
-                    <div class="bg-green-50 text-green-800 px-6 py-2 border border-green-200 font-bold text-sm uppercase tracking-wider">
-                        Se Acepta Hipótesis Alterna (H1)
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 11. HIPÓTESIS ESPECÍFICA 1 ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Contraste de Hipótesis Específicas</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">H.E. 1: Riesgo Normativo</span>
-            </div>
-            
-            <div class="flex flex-col h-full space-y-6">
-                <div class="bg-slate-50 p-4 border-l-4 border-ucv-blue text-sm text-gray-700">
-                    <strong>H1:</strong> Existe una relación significativa entre el riesgo normativo (Tenencia RUC) y la vulnerabilidad financiera (Margen Comercial).
-                </div>
-                
-                <div class="flex-grow flex items-center justify-center bg-slate-50 border border-gray-200 p-4 overflow-hidden">
-                    <img src="tabla_correlacion_he1.png" alt="Tabla Correlación HE1" class="max-h-full max-w-full object-contain">
-                </div>
-
-                <div class="flex justify-between items-center bg-slate-50 p-6 border border-gray-200">
-                    <div>
-                        <span class="text-lg font-bold text-gray-800 mr-4">Rho = 0.045</span>
-                        <span class="text-lg font-bold text-ucv-blue">Sig. < 0.001</span>
-                    </div>
-                    <div class="text-sm text-gray-600 max-w-lg text-right">
-                        <strong>Impacto:</strong> Operar al margen de la formalidad tributaria altera la estabilidad del margen comercial de los establecimientos.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 12. HIPÓTESIS ESPECÍFICA 2 ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Contraste de Hipótesis Específicas</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">H.E. 2: Riesgo Tecnológico</span>
-            </div>
-            
-            <div class="flex flex-col h-full space-y-6">
-                <div class="bg-slate-50 p-4 border-l-4 border-ucv-blue text-sm text-gray-700">
-                    <strong>H1:</strong> Existe una relación significativa entre el riesgo tecnológico (Presencia Web) y la vulnerabilidad financiera (Ventas Netas).
-                </div>
-                
-                <div class="flex-grow flex items-center justify-center bg-slate-50 border border-gray-200 p-4 overflow-hidden">
-                    <img src="tabla_correlacion_he2.png" alt="Tabla Correlación HE2" class="max-h-full max-w-full object-contain">
-                </div>
-
-                <div class="flex justify-between items-center bg-slate-50 p-6 border border-gray-200">
-                    <div>
-                        <span class="text-lg font-bold text-gray-800 mr-4">Rho = -0.080</span>
-                        <span class="text-lg font-bold text-ucv-blue">Sig. < 0.001</span>
-                    </div>
-                    <div class="text-sm text-gray-600 max-w-lg text-right">
-                        <strong>Impacto:</strong> La carencia de plataformas virtuales se asocia directamente con una disminución en los volúmenes de ventas netas.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 13. HIPÓTESIS ESPECÍFICA 3 ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-3xl font-bold text-ucv-blue">Contraste de Hipótesis Específicas</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">H.E. 3: Infraestructura</span>
-            </div>
-            
-            <div class="flex flex-col h-full space-y-6">
-                <div class="bg-slate-50 p-4 border-l-4 border-ucv-blue text-sm text-gray-700">
-                    <strong>H1:</strong> Existe una relación significativa entre el riesgo de infraestructura (Tenencia de local) y la vulnerabilidad financiera (Ventas Netas).
-                </div>
-                
-                <div class="flex-grow flex items-center justify-center bg-slate-50 border border-gray-200 p-4 overflow-hidden">
-                    <img src="tabla_correlacion_he3.png" alt="Tabla Correlación HE3" class="max-h-full max-w-full object-contain">
-                </div>
-
-                <div class="flex justify-between items-center bg-slate-50 p-6 border border-gray-200">
-                    <div>
-                        <span class="text-lg font-bold text-gray-800 mr-4">Rho = -0.033</span>
-                        <span class="text-lg font-bold text-ucv-blue">Sig. < 0.001</span>
-                    </div>
-                    <div class="text-sm text-gray-600 max-w-lg text-right">
-                        <strong>Impacto:</strong> La dependencia del arrendamiento asfixia los costos fijos, reduciendo la predictibilidad de la facturación.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 14. DISCUSIÓN ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-slate-50">
-            <div class="border-b border-gray-300 pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-4xl font-bold text-ucv-blue">Discusión de Resultados</h2>
-                <span class="text-gray-500 font-bold tracking-widest text-sm uppercase">Análisis y Triangulación</span>
-            </div>
-            
-            <div class="flex h-full space-x-12">
-                <div class="w-1/2 flex flex-col justify-center space-y-8">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800 border-l-2 border-ucv-blue pl-3 mb-2">Hallazgos Principales</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Se validaron correlaciones estadísticamente significativas (p < 0.001) entre el descontrol operativo y la fragilidad financiera en una muestra masiva de 53,624 unidades comerciales. La magnitud de la correlación es baja debido a la altísima rotación comercial de Gamarra, que inyecta liquidez diaria pero no asegura la estabilidad.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800 border-l-2 border-ucv-blue pl-3 mb-2">Validación Teórica</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-2">Los datos son consistentes con la literatura académica contemporánea:</p>
-                        <ul class="list-disc pl-5 text-gray-600 text-sm">
-                            <li><strong>Soto (2020):</strong> Formalización como estabilizador financiero.</li>
-                            <li><strong>Ramírez (2021):</strong> TIC's como mitigadores de vulnerabilidad.</li>
-                            <li><strong>Castillo (2021):</strong> Infraestructura estable blinda los ingresos.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="w-1/2 bg-white p-8 border border-gray-200 shadow-sm flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold text-ucv-red mb-4">"La ilusión de rentabilidad" (ISO 31000)</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">La informalidad y nula digitalización generan un espejismo económico. Las MYPES facturan por el intenso tráfico peatonal, no por su eficiencia gestora.</p>
-                    <div class="bg-red-50 p-4 border-l-4 border-ucv-red text-sm text-gray-800 font-medium">
-                        Al carecer de controles operativos, cualquier shock externo (fiscalización de SUNAT, huelgas, alzas de alquiler) destruye inmediatamente su flujo de caja, arrastrándolas a la insolvencia por carecer de defensas institucionales.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 15. CONCLUSIONES ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-white">
-            <div class="border-b pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-4xl font-bold text-ucv-blue">Conclusiones</h2>
-                <span class="text-gray-400 font-bold tracking-widest text-sm uppercase">Cierre Investigativo</span>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-8 h-full">
-                <div class="border border-gray-200 p-6 bg-slate-50">
-                    <span class="text-ucv-blue font-bold text-3xl mb-2 block">01.</span>
-                    <h3 class="font-bold text-gray-800 mb-2">Conclusión General</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">La gestión deficiente del riesgo operativo es un detonante estadísticamente probado de la vulnerabilidad financiera (p < 0.001). <strong>La seguridad operativa no es un gasto administrativo, es el escudo de resiliencia del negocio.</strong></p>
-                </div>
-                
-                <div class="border border-gray-200 p-6 bg-slate-50">
-                    <span class="text-gray-400 font-bold text-3xl mb-2 block">02.</span>
-                    <h3 class="font-bold text-gray-800 mb-2">Factor Normativo</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">La informalidad legal (carecer de RUC) actúa como una barrera rígida que bloquea el crédito formal y expone los márgenes comerciales a la destrucción de valor ante posibles cierres o multas.</p>
-                </div>
-                
-                <div class="border border-gray-200 p-6 bg-slate-50">
-                    <span class="text-gray-400 font-bold text-3xl mb-2 block">03.</span>
-                    <h3 class="font-bold text-gray-800 mb-2">Factor Tecnológico</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">El aislamiento digital extremo (94.3% sin web) merma los volúmenes de ventas netas, desarmando a las Mypes ante la competencia y las dinámicas del comercio electrónico moderno.</p>
-                </div>
-                
-                <div class="border border-gray-200 p-6 bg-slate-50">
-                    <span class="text-gray-400 font-bold text-3xl mb-2 block">04.</span>
-                    <h3 class="font-bold text-gray-800 mb-2">Factor de Infraestructura</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">La excesiva dependencia del arrendamiento logístico asfixia los costos fijos, reduciendo severamente la predictibilidad de los ingresos a largo plazo por la inestabilidad de contratos.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 16. RECOMENDACIONES ================= -->
-        <section class="slide flex-col h-full w-full p-16 bg-slate-50">
-            <div class="border-b border-gray-300 pb-4 mb-8 flex justify-between items-end">
-                <h2 class="text-4xl font-bold text-ucv-blue">Recomendaciones</h2>
-                <span class="text-gray-500 font-bold tracking-widest text-sm uppercase">Aportes y Soluciones</span>
-            </div>
-            
-            <div class="grid grid-cols-3 gap-8 h-full">
-                <div class="bg-white p-8 border-t-4 border-ucv-blue shadow-sm">
-                    <h3 class="font-bold text-lg text-ucv-blue mb-4 uppercase tracking-wider">A los Microempresarios</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Implementar manuales de control interno según la norma ISO 31000. Formalizar inmediatamente su RUC para acceder a financiamiento y transitar hacia canales de venta digitales. Establecer fondos líquidos de contingencia para la gestión de alquileres.</p>
-                </div>
-
-                <div class="bg-white p-8 border-t-4 border-gray-400 shadow-sm">
-                    <h3 class="font-bold text-lg text-gray-800 mb-4 uppercase tracking-wider">A Futuros Investigadores</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Ampliar la muestra hacia estudios de diseño longitudinal para medir la evolución temporal de la mortalidad empresarial, e integrar variables de georreferenciación urbana para medir el hacinamiento físico comercial.</p>
-                </div>
-
-                <div class="bg-white p-8 border-t-4 border-ucv-red shadow-sm">
-                    <h3 class="font-bold text-lg text-ucv-red mb-4 uppercase tracking-wider">A Gobiernos y Gremios</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Sustituir las políticas puramente punitivas por estrategias de formalización asistida. Forjar alianzas entre municipalidades y la Universidad César Vallejo para brindar educación tecnológica y financiera a los comerciantes de La Victoria.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= 17. CIERRE ================= -->
-        <section class="slide flex-col items-center justify-center h-full w-full p-16 bg-ucv-blue text-white text-center">
-            <div class="max-w-4xl mx-auto flex flex-col items-center">
-                <img src="logo_ucv.png" alt="Logo UCV" class="h-24 object-contain mb-10 filter brightness-0 invert opacity-90" onerror="this.style.display='none'">
-                
-                <h1 class="text-6xl font-bold mb-8">Gracias por su atención</h1>
-                <div class="w-32 h-1 bg-ucv-red mx-auto mb-8"></div>
-                <p class="text-2xl font-light text-blue-100 mb-12">Quedamos a entera disposición para las observaciones del jurado calificador.</p>
-                
-                <div class="text-sm font-bold tracking-widest text-blue-300 uppercase">
-                    Universidad César Vallejo - 2026
-                </div>
-            </div>
-        </section>
-
-        <!-- NAVEGACIÓN Y CONTROLES -->
-        <div class="absolute bottom-6 right-8 flex items-center space-x-6 bg-white px-6 py-3 shadow-executive border border-gray-200 z-50">
-            <button onclick="prevSlide()" class="text-gray-400 hover:text-ucv-blue transition"><i class="fas fa-chevron-left"></i></button>
-            <span id="slideCounter" class="font-bold text-gray-800 text-sm">1 / 17</span>
-            <button onclick="nextSlide()" class="text-gray-400 hover:text-ucv-blue transition"><i class="fas fa-chevron-right"></i></button>
+            <button id="nextBtn" class="bg-ucvBlue text-white hover:bg-ucvRed transition font-bold px-6 py-2 rounded-full shadow-md disabled:opacity-30 disabled:cursor-not-allowed">
+                Siguiente &#8594;
+            </button>
         </div>
+    </footer>
 
-        <div class="absolute top-0 left-0 h-1 bg-gray-200 w-full z-50">
-            <div id="progressBar" class="h-full bg-ucv-red transition-all duration-300 w-0"></div>
-        </div>
-    </div>
-
-    <!-- SCRIPT DE NAVEGACIÓN -->
+    <!-- SCRIPT LOGIC -->
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const counter = document.getElementById('slideCounter');
-        const progressBar = document.getElementById('progressBar');
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentNum = document.getElementById('currentSlideNum');
+            const totalNum = document.getElementById('totalSlidesNum');
+            const progressBar = document.getElementById('progressBar');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            totalNum.textContent = totalSlides;
 
-        function updateSlide() {
-            slides.forEach((slide, index) => {
-                if (index === currentSlide) {
-                    slide.classList.add('active');
-                } else {
+            function updateUI() {
+                // Esconder todos los slides
+                slides.forEach((slide, index) => {
                     slide.classList.remove('active');
+                    if (index === currentIndex) {
+                        slide.classList.add('active');
+                    }
+                });
+
+                // Actualizar contadores y botones
+                currentNum.textContent = currentIndex + 1;
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === totalSlides - 1;
+
+                // Actualizar barra de progreso
+                const progress = ((currentIndex) / (totalSlides - 1)) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+
+            function nextSlide() {
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                    updateUI();
+                }
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateUI();
+                }
+            }
+
+            // Listeners de los botones
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Listener del teclado (flechas y espacio)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
                 }
             });
-            counter.innerText = `${currentSlide + 1} / ${slides.length}`;
-            progressBar.style.width = `${((currentSlide) / (slides.length - 1)) * 100}%`;
-        }
 
-        function nextSlide() {
-            if (currentSlide < slides.length - 1) {
-                currentSlide++;
-                updateSlide();
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateSlide();
-            }
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-            }
+            // Init
+            updateUI();
         });
-
-        updateSlide();
     </script>
 </body>
 </html>
